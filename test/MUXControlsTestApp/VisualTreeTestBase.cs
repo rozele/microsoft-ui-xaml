@@ -4,10 +4,10 @@ using System.Threading.Tasks;
 using Windows.Storage;
 using System.IO;
 using MUXControls.TestAppUtils;
-using PlatformConfiguration = Common.PlatformConfiguration;
 using MUXControlsTestApp.Utilities;
 using System.Text;
 using System.Collections.Generic;
+using Windows.UI.Xaml.Markup;
 
 #if USING_TAEF
 using WEX.TestExecution;
@@ -18,13 +18,16 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Microsoft.VisualStudio.TestTools.UnitTesting.Logging;
 #endif
 
+using PlatformConfiguration = Common.PlatformConfiguration;
+
 namespace Windows.UI.Xaml.Tests.MUXControls.ApiTests
 {
     public enum Theme
     {
         Dark,
         Light,
-        HC
+        HC,
+        All
     }
 
     /// <summary>
@@ -47,23 +50,50 @@ namespace Windows.UI.Xaml.Tests.MUXControls.ApiTests
 
         public string MasterFileNamePrefixAndInfix { get { return String.IsNullOrEmpty(MasterFileNameInPrefix) ? MasterFileNamePrefix : MasterFileNamePrefix + "_" + MasterFileNameInPrefix; } }
 
-        protected void VerifyVisualTree(UIElement root, String masterFileInfix)
+        public UIElement SetupVisualTree(string xaml)
+        {
+            UIElement root = null;
+            RunOnUIThread.Execute(() =>
+            {
+                root = (UIElement)XamlReader.Load(xaml);
+                MUXControlsTestApp.App.TestContentRoot = root;
+            });
+
+            MUXControlsTestApp.Utilities.IdleSynchronizer.Wait();   
+            return root;
+        }
+
+        public void VerifyVisualTree(string xaml)
+        {
+            var root = SetupVisualTree(xaml);
+
+            VerifyVisualTree(root, Theme.All);
+        }
+
+        public void VerifyVisualTree(UIElement root, Theme theme)
+        {
+            if (theme == Theme.All)
+            {
+                VerifyVisualTreeForAllTheme(root);
+            }
+            else
+            {
+                VerifyVisualTree(root, theme.ToString());
+            }
+        }
+
+        public void VerifyVisualTree(UIElement root, String masterFileInfix)
         {
             MasterFileNameInPrefix = masterFileInfix;
             VisualTreeCompare(root);
         }
 
-        protected void VerifyVisualTree(UIElement root, Theme theme)
-        {
-            VerifyVisualTree(root, theme.ToString());
-        }
-
-        protected void VerifyVisualTree(UIElement root)
+        private void VerifyVisualTree(UIElement root)
         {
             VisualTreeCompare(root);
         }
 
-        protected void VerifyVisualTreeForAllTheme(UIElement root)
+        private void VerifyVisualTreeForAllTheme(UIElement root)
         {
             var element = root as FrameworkElement;
             CheckTrue(element != null, "Expect FrameworkElement");
@@ -145,7 +175,6 @@ namespace Windows.UI.Xaml.Tests.MUXControls.ApiTests
 
         private async Task<bool> IsMasterFilePresentAsync(string fileName)
         {
-            Log.Comment("Read file" + fileName);
             var uri = new Uri("ms-appx:///master/" + fileName);
             try
             {

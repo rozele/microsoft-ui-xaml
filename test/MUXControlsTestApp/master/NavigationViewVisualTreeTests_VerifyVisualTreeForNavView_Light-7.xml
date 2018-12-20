@@ -17,7 +17,7 @@
   <Property Name="PaneDisplayMode" Value="Auto" />
   <Property Name="OverflowLabelMode" Value="MoreLabel" />
   <Property Name="OpenPaneLength" Value="320" />
-  <Property Name="DisplayMode" Value="Expanded" />
+  <Property Name="DisplayMode" Value="Minimal" />
   <Property Name="MenuItems" Value="System.__ComObject" />
   <Property Name="SettingsItem" Value="Microsoft.UI.Xaml.Controls.NavigationViewItem" />
   <Property Name="Foreground" Value="#FF000000" />
@@ -29,15 +29,17 @@
   <Property Name="VerticalContentAlignment" Value="Center" />
   <Property Name="Template" Value="Windows.UI.Xaml.Controls.ControlTemplate" />
   <Property Name="DefaultStyleResourceUri" Value="ms-appx:///Microsoft.UI.Xaml/Themes/19h1_generic.xaml" />
+  <Property Name="Width" Value="400" />
   <Property Name="VerticalAlignment" Value="Stretch" />
-  <Property Name="ActualHeight" Value="867" />
-  <Property Name="ActualWidth" Value="1200" />
+  <Property Name="Height" Value="400" />
+  <Property Name="ActualHeight" Value="400" />
+  <Property Name="ActualWidth" Value="400" />
   <Property Name="FocusVisualSecondaryBrush" Value="#99FFFFFF" />
   <Property Name="FocusVisualPrimaryBrush" Value="#FF000000" />
   <Property Name="ActualTheme" Value="Light" />
   <Property Name="RenderTransform" Value="Windows.UI.Xaml.Media.MatrixTransform" />
-  <Property Name="DesiredSize" Value="320,160" />
-  <Property Name="RenderSize" Value="1200,867" />
+  <Property Name="DesiredSize" Value="400,400" />
+  <Property Name="RenderSize" Value="400,400" />
   <Property Name="CompositeMode" Value="Inherit" />
   <Property Name="KeyTipVerticalOffset" Value="0" />
   <Property Name="KeyTipPlacementMode" Value="Auto" />
@@ -51,14 +53,14 @@
    <Property Name="IsItemsHost" Value="False" />
    <Property Name="VerticalAlignment" Value="Stretch" />
    <Property Name="Name" Value="RootGrid" />
-   <Property Name="ActualHeight" Value="867" />
-   <Property Name="ActualWidth" Value="1200" />
+   <Property Name="ActualHeight" Value="400" />
+   <Property Name="ActualWidth" Value="400" />
    <Property Name="FocusVisualSecondaryBrush" Value="#99FFFFFF" />
    <Property Name="FocusVisualPrimaryBrush" Value="#FF000000" />
    <Property Name="ActualTheme" Value="Light" />
    <Property Name="RenderTransform" Value="Windows.UI.Xaml.Media.MatrixTransform" />
-   <Property Name="DesiredSize" Value="320,160" />
-   <Property Name="RenderSize" Value="1200,867" />
+   <Property Name="DesiredSize" Value="320,116" />
+   <Property Name="RenderSize" Value="400,400" />
    <Property Name="CompositeMode" Value="Inherit" />
    <Property Name="XYFocusKeyboardNavigation" Value="Enabled" />
    <Property Name="KeyTipVerticalOffset" Value="0" />
@@ -74,14 +76,14 @@
     <Property Name="Name" Value="PaneToggleButtonGrid" />
     <Property Name="Margin" Value="0,0,0,8" />
     <Property Name="HorizontalAlignment" Value="Left" />
-    <Property Name="ActualHeight" Value="84" />
+    <Property Name="ActualHeight" Value="40" />
     <Property Name="ActualWidth" Value="40" />
     <Property Name="FocusVisualSecondaryBrush" Value="#99FFFFFF" />
     <Property Name="FocusVisualPrimaryBrush" Value="#FF000000" />
     <Property Name="ActualTheme" Value="Light" />
     <Property Name="RenderTransform" Value="Windows.UI.Xaml.Media.MatrixTransform" />
-    <Property Name="DesiredSize" Value="40,92" />
-    <Property Name="RenderSize" Value="40,84" />
+    <Property Name="DesiredSize" Value="40,48" />
+    <Property Name="RenderSize" Value="40,40" />
     <Property Name="CompositeMode" Value="Inherit" />
     <Property Name="KeyTipVerticalOffset" Value="0" />
     <Property Name="KeyTipPlacementMode" Value="Auto" />
@@ -116,14 +118,14 @@
      <Property Name="IsItemsHost" Value="False" />
      <Property Name="VerticalAlignment" Value="Stretch" />
      <Property Name="Name" Value="ButtonHolderGrid" />
-     <Property Name="ActualHeight" Value="84" />
+     <Property Name="ActualHeight" Value="40" />
      <Property Name="ActualWidth" Value="40" />
      <Property Name="FocusVisualSecondaryBrush" Value="#99FFFFFF" />
      <Property Name="FocusVisualPrimaryBrush" Value="#FF000000" />
      <Property Name="ActualTheme" Value="Light" />
      <Property Name="RenderTransform" Value="Windows.UI.Xaml.Media.MatrixTransform" />
-     <Property Name="DesiredSize" Value="40,84" />
-     <Property Name="RenderSize" Value="40,84" />
+     <Property Name="DesiredSize" Value="40,40" />
+     <Property Name="RenderSize" Value="40,40" />
      <Property Name="CompositeMode" Value="Inherit" />
      <Property Name="XYFocusKeyboardNavigation" Value="Enabled" />
      <Property Name="TabFocusNavigation" Value="Once" />
@@ -159,138 +161,22 @@
       <Property Name="Name" Value="NavigationViewBackButton" />
       <Property Name="HorizontalAlignment" Value="Left" />
       <Property Name="Height" Value="40" />
-      <Property Name="ActualHeight" Value="40" />
-      <Property Name="ActualWidth" Value="40" />
+      <Property Name="ActualHeight" Value="0" />
+      <Property Name="ActualWidth" Value="0" />
       <Property Name="FocusVisualSecondaryBrush" Value="#99FFFFFF" />
       <Property Name="FocusVisualPrimaryBrush" Value="#FF000000" />
       <Property Name="FocusVisualMargin" Value="-3,-3,-3,-3" />
       <Property Name="ActualTheme" Value="Light" />
+      <Property Name="Visibility" Value="Collapsed" />
       <Property Name="RenderTransform" Value="Windows.UI.Xaml.Media.MatrixTransform" />
-      <Property Name="DesiredSize" Value="40,40" />
-      <Property Name="RenderSize" Value="40,40" />
+      <Property Name="DesiredSize" Value="0,0" />
+      <Property Name="RenderSize" Value="0,0" />
       <Property Name="CompositeMode" Value="Inherit" />
       <Property Name="KeyTipVerticalOffset" Value="0" />
       <Property Name="KeyTipPlacementMode" Value="Auto" />
       <Property Name="Lights" Value="Windows.UI.Xaml.DependencyObject" />
       <Property Name="KeyboardAccelerators" Value="Windows.UI.Xaml.DependencyObject" />
       <Property Name="TransformMatrix" Value="{ {M11:1 M12:0 M13:0 M14:0} {M21:0 M22:1 M23:0 M24:0} {M31:0 M32:0 M33:1 M34:0} {M41:0 M42:0 M43:0 M44:1} }" />
-     <Element Type="Windows.UI.Xaml.Controls.Grid">
-       <Property Name="RowSpacing" Value="0" />
-       <Property Name="ColumnSpacing" Value="0" />
-       <Property Name="Background" Value="#00FFFFFF" />
-       <Property Name="IsItemsHost" Value="False" />
-       <Property Name="VerticalAlignment" Value="Stretch" />
-       <Property Name="Name" Value="RootGrid" />
-       <Property Name="ActualHeight" Value="40" />
-       <Property Name="ActualWidth" Value="40" />
-       <Property Name="FocusVisualSecondaryBrush" Value="#99FFFFFF" />
-       <Property Name="FocusVisualPrimaryBrush" Value="#FF000000" />
-       <Property Name="ActualTheme" Value="Light" />
-       <Property Name="RenderTransform" Value="Windows.UI.Xaml.Media.MatrixTransform" />
-       <Property Name="DesiredSize" Value="16,16" />
-       <Property Name="RenderSize" Value="40,40" />
-       <Property Name="CompositeMode" Value="Inherit" />
-       <Property Name="KeyTipVerticalOffset" Value="0" />
-       <Property Name="KeyTipPlacementMode" Value="Auto" />
-       <Property Name="Lights" Value="Windows.UI.Xaml.DependencyObject" />
-       <Property Name="KeyboardAccelerators" Value="Windows.UI.Xaml.DependencyObject" />
-       <Property Name="TransformMatrix" Value="{ {M11:1 M12:0 M13:0 M14:0} {M21:0 M22:1 M23:0 M24:0} {M31:0 M32:0 M33:1 M34:0} {M41:0 M42:0 M43:0 M44:1} }" />
-      <Element Type="Windows.UI.Xaml.Controls.FontIcon">
-        <Property Name="Glyph" Value="" />
-        <Property Name="FontWeight" Value="Windows.UI.Text.FontWeight" />
-        <Property Name="FontStyle" Value="Normal" />
-        <Property Name="FontSize" Value="16" />
-        <Property Name="FontFamily" Value="Windows.UI.Xaml.Media.FontFamily" />
-        <Property Name="MirroredWhenRightToLeft" Value="True" />
-        <Property Name="Foreground" Value="#66000000" />
-        <Property Name="VerticalAlignment" Value="Center" />
-        <Property Name="Name" Value="Content" />
-        <Property Name="HorizontalAlignment" Value="Center" />
-        <Property Name="ActualHeight" Value="16" />
-        <Property Name="ActualWidth" Value="16" />
-        <Property Name="FocusVisualSecondaryBrush" Value="#99FFFFFF" />
-        <Property Name="FocusVisualPrimaryBrush" Value="#FF000000" />
-        <Property Name="ActualTheme" Value="Light" />
-        <Property Name="RenderTransform" Value="Windows.UI.Xaml.Media.MatrixTransform" />
-        <Property Name="DesiredSize" Value="16,16" />
-        <Property Name="RenderSize" Value="16,16" />
-        <Property Name="CompositeMode" Value="Inherit" />
-        <Property Name="KeyTipVerticalOffset" Value="0" />
-        <Property Name="KeyTipPlacementMode" Value="Auto" />
-        <Property Name="Lights" Value="Windows.UI.Xaml.DependencyObject" />
-        <Property Name="KeyboardAccelerators" Value="Windows.UI.Xaml.DependencyObject" />
-        <Property Name="TransformMatrix" Value="{ {M11:1 M12:0 M13:0 M14:0} {M21:0 M22:1 M23:0 M24:0} {M31:0 M32:0 M33:1 M34:0} {M41:0 M42:0 M43:0 M44:1} }" />
-       <Element Type="Windows.UI.Xaml.Controls.Grid">
-         <Property Name="RowSpacing" Value="0" />
-         <Property Name="ColumnSpacing" Value="0" />
-         <Property Name="Background" Value="#00000000" />
-         <Property Name="IsItemsHost" Value="False" />
-         <Property Name="VerticalAlignment" Value="Stretch" />
-         <Property Name="ActualHeight" Value="16" />
-         <Property Name="ActualWidth" Value="16" />
-         <Property Name="FocusVisualSecondaryBrush" Value="#99FFFFFF" />
-         <Property Name="FocusVisualPrimaryBrush" Value="#FF000000" />
-         <Property Name="ActualTheme" Value="Light" />
-         <Property Name="RenderTransform" Value="Windows.UI.Xaml.Media.MatrixTransform" />
-         <Property Name="DesiredSize" Value="16,16" />
-         <Property Name="RenderSize" Value="16,16" />
-         <Property Name="CompositeMode" Value="Inherit" />
-         <Property Name="KeyTipVerticalOffset" Value="0" />
-         <Property Name="KeyTipPlacementMode" Value="Auto" />
-         <Property Name="Lights" Value="Windows.UI.Xaml.DependencyObject" />
-         <Property Name="KeyboardAccelerators" Value="Windows.UI.Xaml.DependencyObject" />
-         <Property Name="TransformMatrix" Value="{ {M11:1 M12:0 M13:0 M14:0} {M21:0 M22:1 M23:0 M24:0} {M31:0 M32:0 M33:1 M34:0} {M41:0 M42:0 M43:0 M44:1} }" />
-        <Element Type="Windows.UI.Xaml.Controls.TextBlock">
-          <Property Name="TextWrapping" Value="NoWrap" />
-          <Property Name="TextTrimming" Value="None" />
-          <Property Name="TextAlignment" Value="Center" />
-          <Property Name="Text" Value="" />
-          <Property Name="Foreground" Value="#66000000" />
-          <Property Name="FontWeight" Value="Windows.UI.Text.FontWeight" />
-          <Property Name="FontStyle" Value="Normal" />
-          <Property Name="FontStretch" Value="Normal" />
-          <Property Name="FontSize" Value="16" />
-          <Property Name="FontFamily" Value="Windows.UI.Xaml.Media.FontFamily" />
-          <Property Name="LineStackingStrategy" Value="MaxHeight" />
-          <Property Name="LineHeight" Value="0" />
-          <Property Name="IsTextSelectionEnabled" Value="False" />
-          <Property Name="SelectedText" Value="" />
-          <Property Name="BaselineOffset" Value="16" />
-          <Property Name="ContentEnd" Value="Windows.UI.Xaml.Documents.TextPointer" />
-          <Property Name="ContentStart" Value="Windows.UI.Xaml.Documents.TextPointer" />
-          <Property Name="Inlines" Value="Windows.UI.Xaml.Documents.InlineCollection" />
-          <Property Name="TextReadingOrder" Value="DetectFromContent" />
-          <Property Name="TextLineBounds" Value="Full" />
-          <Property Name="SelectionHighlightColor" Value="#FF0063B1" />
-          <Property Name="OpticalMarginAlignment" Value="None" />
-          <Property Name="MaxLines" Value="0" />
-          <Property Name="IsColorFontEnabled" Value="True" />
-          <Property Name="IsTextScaleFactorEnabled" Value="False" />
-          <Property Name="TextDecorations" Value="None" />
-          <Property Name="HorizontalTextAlignment" Value="Center" />
-          <Property Name="IsTextTrimmed" Value="False" />
-          <Property Name="TextHighlighters" Value="Windows.UI.Xaml.DependencyObject" />
-          <Property Name="SelectionFlyout" Value="Windows.UI.Xaml.Controls.TextCommandBarFlyout" />
-          <Property Name="VerticalAlignment" Value="Center" />
-          <Property Name="ActualHeight" Value="16" />
-          <Property Name="ActualWidth" Value="16" />
-          <Property Name="FocusVisualSecondaryBrush" Value="#99FFFFFF" />
-          <Property Name="FocusVisualPrimaryBrush" Value="#FF000000" />
-          <Property Name="ActualTheme" Value="Light" />
-          <Property Name="RenderTransform" Value="Windows.UI.Xaml.Media.MatrixTransform" />
-          <Property Name="DesiredSize" Value="16,16" />
-          <Property Name="RenderSize" Value="16,16" />
-          <Property Name="CompositeMode" Value="Inherit" />
-          <Property Name="ContextFlyout" Value="Windows.UI.Xaml.Controls.TextCommandBarFlyout" />
-          <Property Name="KeyTipVerticalOffset" Value="0" />
-          <Property Name="KeyTipPlacementMode" Value="Auto" />
-          <Property Name="Lights" Value="Windows.UI.Xaml.DependencyObject" />
-          <Property Name="KeyboardAccelerators" Value="Windows.UI.Xaml.DependencyObject" />
-          <Property Name="TransformMatrix" Value="{ {M11:1 M12:0 M13:0 M14:0} {M21:0 M22:1 M23:0 M24:0} {M31:0 M32:0 M33:1 M34:0} {M41:0 M42:0 M43:0 M44:1} }" />
-        </Element>
-       </Element>
-      </Element>
-     </Element>
     </Element>
     <Element Type="Windows.UI.Xaml.Controls.Button">
       <Property Name="ClickMode" Value="Release" />
@@ -317,7 +203,6 @@
       <Property Name="Name" Value="TogglePaneButton" />
       <Property Name="MinWidth" Value="40" />
       <Property Name="MinHeight" Value="40" />
-      <Property Name="Margin" Value="0,44,0,0" />
       <Property Name="HorizontalAlignment" Value="Left" />
       <Property Name="ActualHeight" Value="40" />
       <Property Name="ActualWidth" Value="40" />
@@ -326,7 +211,7 @@
       <Property Name="FocusVisualMargin" Value="-3,-3,-3,-3" />
       <Property Name="ActualTheme" Value="Light" />
       <Property Name="RenderTransform" Value="Windows.UI.Xaml.Media.MatrixTransform" />
-      <Property Name="DesiredSize" Value="40,84" />
+      <Property Name="DesiredSize" Value="40,40" />
       <Property Name="RenderSize" Value="40,40" />
       <Property Name="CompositeMode" Value="Inherit" />
       <Property Name="KeyTipVerticalOffset" Value="0" />
@@ -531,14 +416,14 @@
     <Property Name="ColumnSpacing" Value="0" />
     <Property Name="IsItemsHost" Value="False" />
     <Property Name="VerticalAlignment" Value="Stretch" />
-    <Property Name="ActualHeight" Value="867" />
-    <Property Name="ActualWidth" Value="1200" />
+    <Property Name="ActualHeight" Value="400" />
+    <Property Name="ActualWidth" Value="400" />
     <Property Name="FocusVisualSecondaryBrush" Value="#99FFFFFF" />
     <Property Name="FocusVisualPrimaryBrush" Value="#FF000000" />
     <Property Name="ActualTheme" Value="Light" />
     <Property Name="RenderTransform" Value="Windows.UI.Xaml.Media.MatrixTransform" />
-    <Property Name="DesiredSize" Value="320,160" />
-    <Property Name="RenderSize" Value="1200,867" />
+    <Property Name="DesiredSize" Value="320,116" />
+    <Property Name="RenderSize" Value="400,400" />
     <Property Name="CompositeMode" Value="Inherit" />
     <Property Name="KeyTipVerticalOffset" Value="0" />
     <Property Name="KeyTipPlacementMode" Value="Auto" />
@@ -556,13 +441,13 @@
      <Property Name="VerticalAlignment" Value="Top" />
      <Property Name="Name" Value="TopNavArea" />
      <Property Name="ActualHeight" Value="0" />
-     <Property Name="ActualWidth" Value="1200" />
+     <Property Name="ActualWidth" Value="400" />
      <Property Name="FocusVisualSecondaryBrush" Value="#99FFFFFF" />
      <Property Name="FocusVisualPrimaryBrush" Value="#FF000000" />
      <Property Name="ActualTheme" Value="Light" />
      <Property Name="RenderTransform" Value="Windows.UI.Xaml.Media.MatrixTransform" />
      <Property Name="DesiredSize" Value="0,0" />
-     <Property Name="RenderSize" Value="1200,0" />
+     <Property Name="RenderSize" Value="400,0" />
      <Property Name="CompositeMode" Value="Inherit" />
      <Property Name="XYFocusKeyboardNavigation" Value="Enabled" />
      <Property Name="KeyTipVerticalOffset" Value="0" />
@@ -864,8 +749,8 @@
        <Property Name="TransformMatrix" Value="{ {M11:1 M12:0 M13:0 M14:0} {M21:0 M22:1 M23:0 M24:0} {M31:0 M32:0 M33:1 M34:0} {M41:0 M42:0 M43:0 M44:1} }" />
      </Element>
      <Element Type="Microsoft.UI.Xaml.Controls.NavigationViewItem">
-       <Property Name="Icon" Value="Windows.UI.Xaml.Controls.SymbolIcon" />
        <Property Name="SelectsOnInvoked" Value="True" />
+       <Property Name="Icon" Value="Windows.UI.Xaml.Controls.SymbolIcon" />
        <Property Name="CompactPaneLength" Value="48" />
        <Property Name="IsSelected" Value="False" />
        <Property Name="IsTabStop" Value="True" />
@@ -906,13 +791,13 @@
       <Property Name="VerticalAlignment" Value="Stretch" />
       <Property Name="Name" Value="TopNavContentOverlayAreaGrid" />
       <Property Name="ActualHeight" Value="0" />
-      <Property Name="ActualWidth" Value="1200" />
+      <Property Name="ActualWidth" Value="400" />
       <Property Name="FocusVisualSecondaryBrush" Value="#99FFFFFF" />
       <Property Name="FocusVisualPrimaryBrush" Value="#FF000000" />
       <Property Name="ActualTheme" Value="Light" />
       <Property Name="RenderTransform" Value="Windows.UI.Xaml.Media.MatrixTransform" />
       <Property Name="DesiredSize" Value="0,0" />
-      <Property Name="RenderSize" Value="1200,0" />
+      <Property Name="RenderSize" Value="400,0" />
       <Property Name="CompositeMode" Value="Inherit" />
       <Property Name="KeyTipVerticalOffset" Value="0" />
       <Property Name="KeyTipPlacementMode" Value="Auto" />
@@ -923,11 +808,11 @@
    </Element>
    <Element Type="Windows.UI.Xaml.Controls.SplitView">
      <Property Name="PanePlacement" Value="Left" />
-     <Property Name="PaneBackground" Value="#FFE6E6E6" />
+     <Property Name="PaneBackground" Value="Microsoft.UI.Xaml.Media.AcrylicBrush" />
      <Property Name="Pane" Value="Windows.UI.Xaml.Controls.Grid" />
      <Property Name="OpenPaneLength" Value="320" />
      <Property Name="IsPaneOpen" Value="True" />
-     <Property Name="DisplayMode" Value="CompactInline" />
+     <Property Name="DisplayMode" Value="Overlay" />
      <Property Name="CompactPaneLength" Value="40" />
      <Property Name="LightDismissOverlayMode" Value="Auto" />
      <Property Name="HorizontalContentAlignment" Value="Stretch" />
@@ -941,14 +826,14 @@
      <Property Name="Template" Value="Windows.UI.Xaml.Controls.ControlTemplate" />
      <Property Name="VerticalAlignment" Value="Stretch" />
      <Property Name="Name" Value="RootSplitView" />
-     <Property Name="ActualHeight" Value="867" />
-     <Property Name="ActualWidth" Value="1200" />
+     <Property Name="ActualHeight" Value="400" />
+     <Property Name="ActualWidth" Value="400" />
      <Property Name="FocusVisualSecondaryBrush" Value="#99FFFFFF" />
      <Property Name="FocusVisualPrimaryBrush" Value="#FF000000" />
      <Property Name="ActualTheme" Value="Light" />
      <Property Name="RenderTransform" Value="Windows.UI.Xaml.Media.MatrixTransform" />
-     <Property Name="DesiredSize" Value="320,160" />
-     <Property Name="RenderSize" Value="1200,867" />
+     <Property Name="DesiredSize" Value="320,116" />
+     <Property Name="RenderSize" Value="400,400" />
      <Property Name="CompositeMode" Value="Inherit" />
      <Property Name="KeyTipVerticalOffset" Value="0" />
      <Property Name="KeyTipPlacementMode" Value="Auto" />
@@ -960,14 +845,14 @@
       <Property Name="ColumnSpacing" Value="0" />
       <Property Name="IsItemsHost" Value="False" />
       <Property Name="VerticalAlignment" Value="Stretch" />
-      <Property Name="ActualHeight" Value="867" />
-      <Property Name="ActualWidth" Value="1200" />
+      <Property Name="ActualHeight" Value="400" />
+      <Property Name="ActualWidth" Value="400" />
       <Property Name="FocusVisualSecondaryBrush" Value="#99FFFFFF" />
       <Property Name="FocusVisualPrimaryBrush" Value="#FF000000" />
       <Property Name="ActualTheme" Value="Light" />
       <Property Name="RenderTransform" Value="Windows.UI.Xaml.Media.MatrixTransform" />
-      <Property Name="DesiredSize" Value="320,160" />
-      <Property Name="RenderSize" Value="1200,867" />
+      <Property Name="DesiredSize" Value="320,116" />
+      <Property Name="RenderSize" Value="400,400" />
       <Property Name="CompositeMode" Value="Inherit" />
       <Property Name="KeyTipVerticalOffset" Value="0" />
       <Property Name="KeyTipPlacementMode" Value="Auto" />
@@ -977,22 +862,22 @@
      <Element Type="Windows.UI.Xaml.Controls.Grid">
        <Property Name="RowSpacing" Value="0" />
        <Property Name="ColumnSpacing" Value="0" />
-       <Property Name="Background" Value="#FFE6E6E6" />
+       <Property Name="Background" Value="Microsoft.UI.Xaml.Media.AcrylicBrush" />
        <Property Name="IsItemsHost" Value="False" />
        <Property Name="BackgroundTransition" Value="Windows.UI.Xaml.BrushTransition" />
        <Property Name="Width" Value="320" />
        <Property Name="VerticalAlignment" Value="Stretch" />
        <Property Name="Name" Value="PaneRoot" />
        <Property Name="HorizontalAlignment" Value="Left" />
-       <Property Name="ActualHeight" Value="867" />
+       <Property Name="ActualHeight" Value="400" />
        <Property Name="ActualWidth" Value="320" />
        <Property Name="FocusVisualSecondaryBrush" Value="#99FFFFFF" />
        <Property Name="FocusVisualPrimaryBrush" Value="#FF000000" />
        <Property Name="ActualTheme" Value="Light" />
        <Property Name="Clip" Value="Windows.UI.Xaml.Media.RectangleGeometry" />
        <Property Name="RenderTransform" Value="Windows.UI.Xaml.Media.CompositeTransform" />
-       <Property Name="DesiredSize" Value="320,160" />
-       <Property Name="RenderSize" Value="320,867" />
+       <Property Name="DesiredSize" Value="320,116" />
+       <Property Name="RenderSize" Value="320,400" />
        <Property Name="CompositeMode" Value="Inherit" />
        <Property Name="KeyTipVerticalOffset" Value="0" />
        <Property Name="KeyTipPlacementMode" Value="Auto" />
@@ -1002,14 +887,14 @@
       <Element Type="Windows.UI.Xaml.Controls.Border">
         <Property Name="Child" Value="Windows.UI.Xaml.Controls.Grid" />
         <Property Name="VerticalAlignment" Value="Stretch" />
-        <Property Name="ActualHeight" Value="867" />
+        <Property Name="ActualHeight" Value="400" />
         <Property Name="ActualWidth" Value="320" />
         <Property Name="FocusVisualSecondaryBrush" Value="#99FFFFFF" />
         <Property Name="FocusVisualPrimaryBrush" Value="#FF000000" />
         <Property Name="ActualTheme" Value="Light" />
         <Property Name="RenderTransform" Value="Windows.UI.Xaml.Media.MatrixTransform" />
-        <Property Name="DesiredSize" Value="98,160" />
-        <Property Name="RenderSize" Value="320,867" />
+        <Property Name="DesiredSize" Value="98,116" />
+        <Property Name="RenderSize" Value="320,400" />
         <Property Name="CompositeMode" Value="Inherit" />
         <Property Name="KeyTipVerticalOffset" Value="0" />
         <Property Name="KeyTipPlacementMode" Value="Auto" />
@@ -1022,15 +907,16 @@
          <Property Name="IsItemsHost" Value="False" />
          <Property Name="VerticalAlignment" Value="Stretch" />
          <Property Name="Name" Value="PaneContentGrid" />
-         <Property Name="ActualHeight" Value="867" />
+         <Property Name="ActualHeight" Value="400" />
          <Property Name="ActualWidth" Value="320" />
          <Property Name="FocusVisualSecondaryBrush" Value="#99FFFFFF" />
          <Property Name="FocusVisualPrimaryBrush" Value="#FF000000" />
          <Property Name="ActualTheme" Value="Light" />
          <Property Name="RenderTransform" Value="Windows.UI.Xaml.Media.MatrixTransform" />
-         <Property Name="DesiredSize" Value="98,160" />
-         <Property Name="RenderSize" Value="320,867" />
+         <Property Name="DesiredSize" Value="98,116" />
+         <Property Name="RenderSize" Value="320,400" />
          <Property Name="CompositeMode" Value="Inherit" />
+         <Property Name="TabFocusNavigation" Value="Cycle" />
          <Property Name="KeyTipVerticalOffset" Value="0" />
          <Property Name="KeyTipPlacementMode" Value="Auto" />
          <Property Name="Lights" Value="Windows.UI.Xaml.DependencyObject" />
@@ -1375,14 +1261,14 @@
           <Property Name="VerticalAlignment" Value="Stretch" />
           <Property Name="Name" Value="MenuItemsHost" />
           <Property Name="Margin" Value="0,0,0,20" />
-          <Property Name="ActualHeight" Value="707" />
+          <Property Name="ActualHeight" Value="284" />
           <Property Name="ActualWidth" Value="320" />
           <Property Name="FocusVisualSecondaryBrush" Value="#99FFFFFF" />
           <Property Name="FocusVisualPrimaryBrush" Value="#FF000000" />
           <Property Name="ActualTheme" Value="Light" />
           <Property Name="RenderTransform" Value="Windows.UI.Xaml.Media.MatrixTransform" />
           <Property Name="DesiredSize" Value="0,20" />
-          <Property Name="RenderSize" Value="320,707" />
+          <Property Name="RenderSize" Value="320,284" />
           <Property Name="CompositeMode" Value="Inherit" />
           <Property Name="TabFocusNavigation" Value="Once" />
           <Property Name="KeyTipVerticalOffset" Value="0" />
@@ -1393,14 +1279,14 @@
          <Element Type="Windows.UI.Xaml.Controls.Border">
            <Property Name="Child" Value="Windows.UI.Xaml.Controls.ScrollViewer" />
            <Property Name="VerticalAlignment" Value="Stretch" />
-           <Property Name="ActualHeight" Value="707" />
+           <Property Name="ActualHeight" Value="284" />
            <Property Name="ActualWidth" Value="320" />
            <Property Name="FocusVisualSecondaryBrush" Value="#99FFFFFF" />
            <Property Name="FocusVisualPrimaryBrush" Value="#FF000000" />
            <Property Name="ActualTheme" Value="Light" />
            <Property Name="RenderTransform" Value="Windows.UI.Xaml.Media.MatrixTransform" />
            <Property Name="DesiredSize" Value="0,0" />
-           <Property Name="RenderSize" Value="320,707" />
+           <Property Name="RenderSize" Value="320,284" />
            <Property Name="CompositeMode" Value="Inherit" />
            <Property Name="KeyTipVerticalOffset" Value="0" />
            <Property Name="KeyTipPlacementMode" Value="Auto" />
@@ -1436,7 +1322,7 @@
             <Property Name="HorizontalOffset" Value="0" />
             <Property Name="ScrollableWidth" Value="0" />
             <Property Name="VerticalOffset" Value="0" />
-            <Property Name="ViewportHeight" Value="707" />
+            <Property Name="ViewportHeight" Value="284" />
             <Property Name="ViewportWidth" Value="320" />
             <Property Name="ZoomFactor" Value="1" />
             <Property Name="ZoomSnapPoints" Value="System.__ComObject" />
@@ -1459,14 +1345,14 @@
             <Property Name="UseSystemFocusVisuals" Value="True" />
             <Property Name="VerticalAlignment" Value="Stretch" />
             <Property Name="Name" Value="ScrollViewer" />
-            <Property Name="ActualHeight" Value="707" />
+            <Property Name="ActualHeight" Value="284" />
             <Property Name="ActualWidth" Value="320" />
             <Property Name="FocusVisualSecondaryBrush" Value="#99FFFFFF" />
             <Property Name="FocusVisualPrimaryBrush" Value="#FF000000" />
             <Property Name="ActualTheme" Value="Light" />
             <Property Name="RenderTransform" Value="Windows.UI.Xaml.Media.MatrixTransform" />
             <Property Name="DesiredSize" Value="0,0" />
-            <Property Name="RenderSize" Value="320,707" />
+            <Property Name="RenderSize" Value="320,284" />
             <Property Name="CompositeMode" Value="Inherit" />
             <Property Name="TabFocusNavigation" Value="Once" />
             <Property Name="KeyTipVerticalOffset" Value="0" />
@@ -1479,14 +1365,14 @@
              <Property Name="BorderBrush" Value="#00FFFFFF" />
              <Property Name="VerticalAlignment" Value="Stretch" />
              <Property Name="Name" Value="Root" />
-             <Property Name="ActualHeight" Value="707" />
+             <Property Name="ActualHeight" Value="284" />
              <Property Name="ActualWidth" Value="320" />
              <Property Name="FocusVisualSecondaryBrush" Value="#99FFFFFF" />
              <Property Name="FocusVisualPrimaryBrush" Value="#FF000000" />
              <Property Name="ActualTheme" Value="Light" />
              <Property Name="RenderTransform" Value="Windows.UI.Xaml.Media.MatrixTransform" />
              <Property Name="DesiredSize" Value="0,0" />
-             <Property Name="RenderSize" Value="320,707" />
+             <Property Name="RenderSize" Value="320,284" />
              <Property Name="CompositeMode" Value="Inherit" />
              <Property Name="KeyTipVerticalOffset" Value="0" />
              <Property Name="KeyTipPlacementMode" Value="Auto" />
@@ -1499,14 +1385,14 @@
               <Property Name="Background" Value="#00FFFFFF" />
               <Property Name="IsItemsHost" Value="False" />
               <Property Name="VerticalAlignment" Value="Stretch" />
-              <Property Name="ActualHeight" Value="707" />
+              <Property Name="ActualHeight" Value="284" />
               <Property Name="ActualWidth" Value="320" />
               <Property Name="FocusVisualSecondaryBrush" Value="#99FFFFFF" />
               <Property Name="FocusVisualPrimaryBrush" Value="#FF000000" />
               <Property Name="ActualTheme" Value="Light" />
               <Property Name="RenderTransform" Value="Windows.UI.Xaml.Media.MatrixTransform" />
               <Property Name="DesiredSize" Value="0,0" />
-              <Property Name="RenderSize" Value="320,707" />
+              <Property Name="RenderSize" Value="320,284" />
               <Property Name="CompositeMode" Value="Inherit" />
               <Property Name="KeyTipVerticalOffset" Value="0" />
               <Property Name="KeyTipPlacementMode" Value="Auto" />
@@ -1521,7 +1407,7 @@
                <Property Name="ExtentWidth" Value="0" />
                <Property Name="HorizontalOffset" Value="0" />
                <Property Name="VerticalOffset" Value="0" />
-               <Property Name="ViewportHeight" Value="707" />
+               <Property Name="ViewportHeight" Value="284" />
                <Property Name="ViewportWidth" Value="320" />
                <Property Name="CanContentRenderOutsideBounds" Value="False" />
                <Property Name="Foreground" Value="#FF000000" />
@@ -1539,7 +1425,7 @@
                <Property Name="HorizontalContentAlignment" Value="Stretch" />
                <Property Name="VerticalAlignment" Value="Stretch" />
                <Property Name="Name" Value="ScrollContentPresenter" />
-               <Property Name="ActualHeight" Value="707" />
+               <Property Name="ActualHeight" Value="284" />
                <Property Name="ActualWidth" Value="320" />
                <Property Name="FocusVisualSecondaryBrush" Value="#99FFFFFF" />
                <Property Name="FocusVisualPrimaryBrush" Value="#FF000000" />
@@ -1547,7 +1433,7 @@
                <Property Name="Clip" Value="Windows.UI.Xaml.Media.RectangleGeometry" />
                <Property Name="RenderTransform" Value="Windows.UI.Xaml.Media.MatrixTransform" />
                <Property Name="DesiredSize" Value="0,0" />
-               <Property Name="RenderSize" Value="320,707" />
+               <Property Name="RenderSize" Value="320,284" />
                <Property Name="CompositeMode" Value="Inherit" />
                <Property Name="KeyTipVerticalOffset" Value="0" />
                <Property Name="KeyTipPlacementMode" Value="Auto" />
@@ -1558,14 +1444,14 @@
                 <Property Name="AreHorizontalSnapPointsRegular" Value="False" />
                 <Property Name="AreVerticalSnapPointsRegular" Value="False" />
                 <Property Name="VerticalAlignment" Value="Stretch" />
-                <Property Name="ActualHeight" Value="707" />
+                <Property Name="ActualHeight" Value="284" />
                 <Property Name="ActualWidth" Value="320" />
                 <Property Name="FocusVisualSecondaryBrush" Value="#99FFFFFF" />
                 <Property Name="FocusVisualPrimaryBrush" Value="#FF000000" />
                 <Property Name="ActualTheme" Value="Light" />
                 <Property Name="RenderTransform" Value="Windows.UI.Xaml.Media.MatrixTransform" />
                 <Property Name="DesiredSize" Value="0,0" />
-                <Property Name="RenderSize" Value="320,707" />
+                <Property Name="RenderSize" Value="320,284" />
                 <Property Name="CompositeMode" Value="Inherit" />
                 <Property Name="KeyTipVerticalOffset" Value="0" />
                 <Property Name="KeyTipPlacementMode" Value="Auto" />
@@ -1613,14 +1499,14 @@
                  <Property Name="AreStickyGroupHeadersEnabled" Value="True" />
                  <Property Name="IsItemsHost" Value="True" />
                  <Property Name="VerticalAlignment" Value="Stretch" />
-                 <Property Name="ActualHeight" Value="707" />
+                 <Property Name="ActualHeight" Value="284" />
                  <Property Name="ActualWidth" Value="320" />
                  <Property Name="FocusVisualSecondaryBrush" Value="#99FFFFFF" />
                  <Property Name="FocusVisualPrimaryBrush" Value="#FF000000" />
                  <Property Name="ActualTheme" Value="Light" />
                  <Property Name="RenderTransform" Value="Windows.UI.Xaml.Media.MatrixTransform" />
                  <Property Name="DesiredSize" Value="0,0" />
-                 <Property Name="RenderSize" Value="320,707" />
+                 <Property Name="RenderSize" Value="320,284" />
                  <Property Name="CompositeMode" Value="Inherit" />
                  <Property Name="KeyTipVerticalOffset" Value="0" />
                  <Property Name="KeyTipPlacementMode" Value="Auto" />
@@ -1662,14 +1548,14 @@
                <Property Name="ColumnSpacing" Value="0" />
                <Property Name="IsItemsHost" Value="False" />
                <Property Name="VerticalAlignment" Value="Stretch" />
-               <Property Name="ActualHeight" Value="707" />
+               <Property Name="ActualHeight" Value="284" />
                <Property Name="ActualWidth" Value="320" />
                <Property Name="FocusVisualSecondaryBrush" Value="#99FFFFFF" />
                <Property Name="FocusVisualPrimaryBrush" Value="#FF000000" />
                <Property Name="ActualTheme" Value="Light" />
                <Property Name="RenderTransform" Value="Windows.UI.Xaml.Media.MatrixTransform" />
                <Property Name="DesiredSize" Value="0,0" />
-               <Property Name="RenderSize" Value="320,707" />
+               <Property Name="RenderSize" Value="320,284" />
                <Property Name="CompositeMode" Value="Inherit" />
                <Property Name="KeyTipVerticalOffset" Value="0" />
                <Property Name="KeyTipPlacementMode" Value="Auto" />
@@ -1678,7 +1564,7 @@
                <Property Name="TransformMatrix" Value="{ {M11:1 M12:0 M13:0 M14:0} {M21:0 M22:1 M23:0 M24:0} {M31:0 M32:0 M33:1 M34:0} {M41:0 M42:0 M43:0 M44:1} }" />
              </Element>
              <Element Type="Windows.UI.Xaml.Controls.Primitives.ScrollBar">
-               <Property Name="ViewportSize" Value="707" />
+               <Property Name="ViewportSize" Value="284" />
                <Property Name="Orientation" Value="Vertical" />
                <Property Name="IndicatorMode" Value="MouseIndicator" />
                <Property Name="Value" Value="0" />
@@ -1840,8 +1726,8 @@
          </Element>
         </Element>
         <Element Type="Microsoft.UI.Xaml.Controls.NavigationViewItem">
-          <Property Name="Icon" Value="Windows.UI.Xaml.Controls.SymbolIcon" />
           <Property Name="SelectsOnInvoked" Value="True" />
+          <Property Name="Icon" Value="Windows.UI.Xaml.Controls.SymbolIcon" />
           <Property Name="CompactPaneLength" Value="40" />
           <Property Name="IsSelected" Value="False" />
           <Property Name="IsTabStop" Value="True" />
@@ -2291,14 +2177,14 @@
         <Property Name="VerticalAlignment" Value="Stretch" />
         <Property Name="Name" Value="HCPaneBorder" />
         <Property Name="HorizontalAlignment" Value="Right" />
-        <Property Name="ActualHeight" Value="867" />
+        <Property Name="ActualHeight" Value="400" />
         <Property Name="ActualWidth" Value="1" />
         <Property Name="FocusVisualSecondaryBrush" Value="#99FFFFFF" />
         <Property Name="FocusVisualPrimaryBrush" Value="#FF000000" />
         <Property Name="ActualTheme" Value="Light" />
         <Property Name="RenderTransform" Value="Windows.UI.Xaml.Media.MatrixTransform" />
         <Property Name="DesiredSize" Value="1,0" />
-        <Property Name="RenderSize" Value="1,867" />
+        <Property Name="RenderSize" Value="1,400" />
         <Property Name="CompositeMode" Value="Inherit" />
         <Property Name="KeyTipVerticalOffset" Value="0" />
         <Property Name="KeyTipPlacementMode" Value="Auto" />
@@ -2313,14 +2199,14 @@
        <Property Name="IsItemsHost" Value="False" />
        <Property Name="VerticalAlignment" Value="Stretch" />
        <Property Name="Name" Value="ContentRoot" />
-       <Property Name="ActualHeight" Value="867" />
-       <Property Name="ActualWidth" Value="880" />
+       <Property Name="ActualHeight" Value="400" />
+       <Property Name="ActualWidth" Value="400" />
        <Property Name="FocusVisualSecondaryBrush" Value="#99FFFFFF" />
        <Property Name="FocusVisualPrimaryBrush" Value="#FF000000" />
        <Property Name="ActualTheme" Value="Light" />
        <Property Name="RenderTransform" Value="Windows.UI.Xaml.Media.CompositeTransform" />
        <Property Name="DesiredSize" Value="0,0" />
-       <Property Name="RenderSize" Value="880,867" />
+       <Property Name="RenderSize" Value="400,400" />
        <Property Name="CompositeMode" Value="Inherit" />
        <Property Name="KeyTipVerticalOffset" Value="0" />
        <Property Name="KeyTipPlacementMode" Value="Auto" />
@@ -2330,14 +2216,14 @@
       <Element Type="Windows.UI.Xaml.Controls.Border">
         <Property Name="Child" Value="Windows.UI.Xaml.Controls.Grid" />
         <Property Name="VerticalAlignment" Value="Stretch" />
-        <Property Name="ActualHeight" Value="867" />
-        <Property Name="ActualWidth" Value="880" />
+        <Property Name="ActualHeight" Value="400" />
+        <Property Name="ActualWidth" Value="400" />
         <Property Name="FocusVisualSecondaryBrush" Value="#99FFFFFF" />
         <Property Name="FocusVisualPrimaryBrush" Value="#FF000000" />
         <Property Name="ActualTheme" Value="Light" />
         <Property Name="RenderTransform" Value="Windows.UI.Xaml.Media.MatrixTransform" />
         <Property Name="DesiredSize" Value="0,0" />
-        <Property Name="RenderSize" Value="880,867" />
+        <Property Name="RenderSize" Value="400,400" />
         <Property Name="CompositeMode" Value="Inherit" />
         <Property Name="KeyTipVerticalOffset" Value="0" />
         <Property Name="KeyTipPlacementMode" Value="Auto" />
@@ -2350,14 +2236,14 @@
          <Property Name="IsItemsHost" Value="False" />
          <Property Name="VerticalAlignment" Value="Stretch" />
          <Property Name="Name" Value="ContentGrid" />
-         <Property Name="ActualHeight" Value="867" />
-         <Property Name="ActualWidth" Value="880" />
+         <Property Name="ActualHeight" Value="400" />
+         <Property Name="ActualWidth" Value="400" />
          <Property Name="FocusVisualSecondaryBrush" Value="#99FFFFFF" />
          <Property Name="FocusVisualPrimaryBrush" Value="#FF000000" />
          <Property Name="ActualTheme" Value="Light" />
          <Property Name="RenderTransform" Value="Windows.UI.Xaml.Media.MatrixTransform" />
          <Property Name="DesiredSize" Value="0,0" />
-         <Property Name="RenderSize" Value="880,867" />
+         <Property Name="RenderSize" Value="400,400" />
          <Property Name="CompositeMode" Value="Inherit" />
          <Property Name="XYFocusKeyboardNavigation" Value="Disabled" />
          <Property Name="KeyTipVerticalOffset" Value="0" />
@@ -2373,13 +2259,13 @@
           <Property Name="Name" Value="ContentTopPadding" />
           <Property Name="Height" Value="0" />
           <Property Name="ActualHeight" Value="0" />
-          <Property Name="ActualWidth" Value="880" />
+          <Property Name="ActualWidth" Value="400" />
           <Property Name="FocusVisualSecondaryBrush" Value="#99FFFFFF" />
           <Property Name="FocusVisualPrimaryBrush" Value="#FF000000" />
           <Property Name="ActualTheme" Value="Light" />
           <Property Name="RenderTransform" Value="Windows.UI.Xaml.Media.MatrixTransform" />
           <Property Name="DesiredSize" Value="0,0" />
-          <Property Name="RenderSize" Value="880,0" />
+          <Property Name="RenderSize" Value="400,0" />
           <Property Name="CompositeMode" Value="Inherit" />
           <Property Name="KeyTipVerticalOffset" Value="0" />
           <Property Name="KeyTipPlacementMode" Value="Auto" />
@@ -2402,7 +2288,7 @@
           <Property Name="Style" Value="Windows.UI.Xaml.Style" />
           <Property Name="Name" Value="HeaderContent" />
           <Property Name="MinHeight" Value="40" />
-          <Property Name="Margin" Value="12,5,0,11" />
+          <Property Name="Margin" Value="48,5,0,0" />
           <Property Name="ActualHeight" Value="0" />
           <Property Name="ActualWidth" Value="0" />
           <Property Name="FocusVisualSecondaryBrush" Value="#99FFFFFF" />
@@ -2434,14 +2320,14 @@
           <Property Name="LineHeight" Value="0" />
           <Property Name="HorizontalContentAlignment" Value="Stretch" />
           <Property Name="VerticalAlignment" Value="Stretch" />
-          <Property Name="ActualHeight" Value="867" />
-          <Property Name="ActualWidth" Value="880" />
+          <Property Name="ActualHeight" Value="400" />
+          <Property Name="ActualWidth" Value="400" />
           <Property Name="FocusVisualSecondaryBrush" Value="#99FFFFFF" />
           <Property Name="FocusVisualPrimaryBrush" Value="#FF000000" />
           <Property Name="ActualTheme" Value="Light" />
           <Property Name="RenderTransform" Value="Windows.UI.Xaml.Media.MatrixTransform" />
           <Property Name="DesiredSize" Value="0,0" />
-          <Property Name="RenderSize" Value="880,867" />
+          <Property Name="RenderSize" Value="400,400" />
           <Property Name="CompositeMode" Value="Inherit" />
           <Property Name="KeyTipVerticalOffset" Value="0" />
           <Property Name="KeyTipPlacementMode" Value="Auto" />
@@ -2467,15 +2353,14 @@
         <Property Name="GeometryTransform" Value="Windows.UI.Xaml.Media.MatrixTransform" />
         <Property Name="VerticalAlignment" Value="Stretch" />
         <Property Name="Name" Value="LightDismissLayer" />
-        <Property Name="ActualHeight" Value="867" />
-        <Property Name="ActualWidth" Value="1200" />
+        <Property Name="ActualHeight" Value="400" />
+        <Property Name="ActualWidth" Value="400" />
         <Property Name="FocusVisualSecondaryBrush" Value="#99FFFFFF" />
         <Property Name="FocusVisualPrimaryBrush" Value="#FF000000" />
         <Property Name="ActualTheme" Value="Light" />
-        <Property Name="Visibility" Value="Collapsed" />
         <Property Name="RenderTransform" Value="Windows.UI.Xaml.Media.MatrixTransform" />
         <Property Name="DesiredSize" Value="0,0" />
-        <Property Name="RenderSize" Value="1200,867" />
+        <Property Name="RenderSize" Value="400,400" />
         <Property Name="CompositeMode" Value="Inherit" />
         <Property Name="KeyTipVerticalOffset" Value="0" />
         <Property Name="KeyTipPlacementMode" Value="Auto" />

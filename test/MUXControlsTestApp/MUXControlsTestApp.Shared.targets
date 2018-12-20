@@ -36,6 +36,7 @@
   <Import Project="$(MSBuildThisFileDirectory)\..\..\dev\Materials\Acrylic\APITests\AcrylicBrush_ApiTests.projitems" Label="Shared" />
   <Import Project="$(MSBuildThisFileDirectory)\..\..\dev\Materials\Reveal\APITests\Reveal_APITests.projitems" Label="Shared" />
   <Import Project="$(MSBuildThisFileDirectory)\..\..\dev\NavigationView\NavigationView_ApiTests\NavigationView_ApiTests.projitems" Label="Shared" />
+  <Import Project="$(MSBuildThisFileDirectory)\..\..\dev\CommonStyles\APITests\CommonStyles_ApiTests.projitems" Label="Shared" />
   <Import Project="$(MSBuildThisFileDirectory)\..\..\dev\ParallaxView\APITests\ParallaxView_APITests.projitems" Label="Shared" />
   <Import Project="$(MSBuildThisFileDirectory)\..\..\dev\PersonPicture\APITests\PersonPicture_APITests.projitems" Label="Shared" Condition="$(BuildLeanMuxForTheStoreApp) != 'true'" />
   <Import Project="$(MSBuildThisFileDirectory)\..\..\dev\PullToRefresh\RefreshVisualizer\APITests\RefreshVisualizer_APITests.projitems" Label="Shared" Condition="$(BuildLeanMuxForTheStoreApp) != 'true'" />

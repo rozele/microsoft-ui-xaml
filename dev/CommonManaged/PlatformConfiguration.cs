@@ -53,7 +53,7 @@ namespace Common
                 }
                 else
                 {
-                    while (!IsApiContractPresent((ushort)(currentAPIVersion - 1)))
+                    while (!IsApiContractPresent(currentAPIVersion))
                     {
                         currentAPIVersion--;
                     }

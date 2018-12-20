@@ -39,16 +39,24 @@ namespace Windows.UI.Xaml.Tests.MUXControls.ApiTests
         [TestMethod]
         public void VerifyVisualTreeForNavView()
         {
+            if (PlatformConfiguration.IsOSVersionLessThan(OSVersion.Redstone5))
+            {
+                // master file not ready until VisualTreeDumper is stable
+                return;
+            }
+
             NavigationView navView = null;
 
             RunOnUIThread.Execute(() =>
             {
                 navView = new NavigationView();
+                navView.Width = 400;
+                navView.Height = 400;
                 MUXControlsTestApp.App.TestContentRoot = navView;
             });
             IdleSynchronizer.Wait();
 
-            VerifyVisualTreeForAllTheme(navView);
+            VerifyVisualTree(navView, Theme.All);
         }
     }
 
