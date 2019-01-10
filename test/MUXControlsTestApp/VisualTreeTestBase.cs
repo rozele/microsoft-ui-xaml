@@ -38,8 +38,12 @@ namespace Windows.UI.Xaml.Tests.MUXControls.ApiTests
     /// </summary>
     public class VisualTreeTestBase
     {
+        public const string LogMasterFileRuntimeParameterName = "LogMasterFile";
+
         public TestContext TestContext { get; set; }
         
+        public bool ShouldLogMasterFile { get; set; }
+
         public string TestCaseName { get; private set; }
 
         // To avoid filename conflict for master file, we use the format of [testclass]_[testname] as prefix.
@@ -142,6 +146,8 @@ namespace Windows.UI.Xaml.Tests.MUXControls.ApiTests
             MasterFileNamePrefix = elements[elements.Length - 2] + "_" + TestCaseName;
 
             LogTestContext();
+            ShouldLogMasterFile = TestContextContainsKey(LogMasterFileRuntimeParameterName);
+
             OnTestInitialized();
         }
         protected virtual void OnTestInitialized() { }
@@ -195,6 +201,15 @@ namespace Windows.UI.Xaml.Tests.MUXControls.ApiTests
             Log.Comment("TestName: " + TestContext.TestName);
 #endif
             Log.Comment("MasterFileNamePrefix: " + MasterFileNamePrefix);
+
+            if (TestContextContainsKey(LogMasterFileRuntimeParameterName))
+            {
+                Log.Comment(LogMasterFileRuntimeParameterName + ": True");
+            }
+            else
+            {
+                Log.Comment(LogMasterFileRuntimeParameterName + ": False");
+            }
         }
 
         private void WriteLocalFile(string fileName, string content)
@@ -202,9 +217,14 @@ namespace Windows.UI.Xaml.Tests.MUXControls.ApiTests
             WriteLocalFileAsync(fileName, content).Wait();
         }
 
+        private StorageFolder GetStorageFolder()
+        {
+            return ShouldLogMasterFile ? KnownFolders.MusicLibrary : ApplicationData.Current.LocalFolder;
+        }
+
         private async Task WriteLocalFileAsync(string fileName, string content)
         {
-            StorageFolder storageFolder = ApplicationData.Current.LocalFolder;
+            StorageFolder storageFolder = GetStorageFolder();
             var file = await storageFolder.CreateFileAsync(fileName, CreationCollisionOption.ReplaceExisting);
             await FileIO.WriteTextAsync(file, content);
         }
@@ -272,7 +292,7 @@ namespace Windows.UI.Xaml.Tests.MUXControls.ApiTests
                 WriteLocalFile(expectedMasterFileName + ".orig", expectedContent);
 
                 Log.Comment(result.ToString());
-                var error = String.Format("Compare failed, but {0} is put into {1}", expectedMasterFileName, ApplicationData.Current.LocalFolder.Path);
+                var error = String.Format("Compare failed, but {0} is put into {1}", expectedMasterFileName, GetStorageFolder().Path);
                 Verify.Fail(error);
             }
         }
@@ -297,6 +317,15 @@ namespace Windows.UI.Xaml.Tests.MUXControls.ApiTests
                 result.AddError("content doesn't match");
             }
             return result;
+        }
+
+        private bool TestContextContainsKey(string key)
+        {
+#if USING_TAEF
+           return TestContext.Properties.Contains(key);
+#else
+           return TestContext.Properties.ContainsKey(key);
+#endif
         }
     }
 
