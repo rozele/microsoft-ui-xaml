@@ -19,7 +19,6 @@
   <Property Name="KeyTipPlacementMode" Value="Auto" />
   <Property Name="Lights" Value="Windows.UI.Xaml.DependencyObject" />
   <Property Name="KeyboardAccelerators" Value="Windows.UI.Xaml.DependencyObject" />
-  <Property Name="TransformMatrix" Value="{ {M11:1 M12:0 M13:0 M14:0} {M21:0 M22:1 M23:0 M24:0} {M31:0 M32:0 M33:1 M34:0} {M41:0 M42:0 M43:0 M44:1} }" />
  <Element Type="Windows.UI.Xaml.Controls.StackPanel">
    <Property Name="Orientation" Value="Vertical" />
    <Property Name="AreScrollSnapPointsRegular" Value="False" />
@@ -41,7 +40,6 @@
    <Property Name="KeyTipPlacementMode" Value="Auto" />
    <Property Name="Lights" Value="Windows.UI.Xaml.DependencyObject" />
    <Property Name="KeyboardAccelerators" Value="Windows.UI.Xaml.DependencyObject" />
-   <Property Name="TransformMatrix" Value="{ {M11:1 M12:0 M13:0 M14:0} {M21:0 M22:1 M23:0 M24:0} {M31:0 M32:0 M33:1 M34:0} {M41:0 M42:0 M43:0 M44:1} }" />
   <Element Type="Windows.UI.Xaml.Controls.AppBarButton">
     <Property Name="Label" Value="Accept" />
     <Property Name="Icon" Value="Windows.UI.Xaml.Controls.SymbolIcon" />
@@ -56,14 +54,12 @@
     <Property Name="IsTabStop" Value="True" />
     <Property Name="Foreground" Value="#FFFFFFFF" />
     <Property Name="FontWeight" Value="Windows.UI.Text.FontWeight" />
-    <Property Name="FontStyle" Value="Normal" />
     <Property Name="FontStretch" Value="Normal" />
     <Property Name="FontFamily" Value="Windows.UI.Xaml.Media.FontFamily" />
     <Property Name="BorderBrush" Value="#00FFFFFF" />
     <Property Name="TabNavigation" Value="Local" />
     <Property Name="Background" Value="#00FFFFFF" />
     <Property Name="VerticalContentAlignment" Value="Center" />
-    <Property Name="Template" Value="Windows.UI.Xaml.Controls.ControlTemplate" />
     <Property Name="UseSystemFocusVisuals" Value="True" />
     <Property Name="Width" Value="68" />
     <Property Name="VerticalAlignment" Value="Top" />
@@ -83,7 +79,6 @@
     <Property Name="Lights" Value="Windows.UI.Xaml.DependencyObject" />
     <Property Name="KeyboardAccelerators" Value="Windows.UI.Xaml.DependencyObject" />
     <Property Name="KeyboardAcceleratorPlacementMode" Value="Hidden" />
-    <Property Name="TransformMatrix" Value="{ {M11:1 M12:0 M13:0 M14:0} {M21:0 M22:1 M23:0 M24:0} {M31:0 M32:0 M33:1 M34:0} {M41:0 M42:0 M43:0 M44:1} }" />
    <Element Type="Windows.UI.Xaml.Controls.Grid">
      <Property Name="BorderBrush" Value="#00FFFFFF" />
      <Property Name="RowSpacing" Value="0" />
@@ -99,7 +94,7 @@
      <Property Name="AllowFocusOnInteraction" Value="False" />
      <Property Name="ActualTheme" Value="Dark" />
      <Property Name="RenderTransform" Value="Windows.UI.Xaml.Media.MatrixTransform" />
-     <Property Name="DesiredSize" Value="41,56" />
+     <Property Name="DesiredSize" Value="40.8,56" />
      <Property Name="RenderSize" Value="68,56" />
      <Property Name="CompositeMode" Value="Inherit" />
      <Property Name="KeyTipVerticalOffset" Value="0" />
@@ -107,7 +102,6 @@
      <Property Name="Lights" Value="Windows.UI.Xaml.DependencyObject" />
      <Property Name="KeyboardAccelerators" Value="Windows.UI.Xaml.DependencyObject" />
      <Property Name="KeyboardAcceleratorPlacementMode" Value="Hidden" />
-     <Property Name="TransformMatrix" Value="{ {M11:1 M12:0 M13:0 M14:0} {M21:0 M22:1 M23:0 M24:0} {M31:0 M32:0 M33:1 M34:0} {M41:0 M42:0 M43:0 M44:1} }" />
     <Element Type="Windows.UI.Xaml.Shapes.Rectangle">
       <Property Name="RadiusY" Value="0" />
       <Property Name="RadiusX" Value="0" />
@@ -139,7 +133,6 @@
       <Property Name="Lights" Value="Windows.UI.Xaml.DependencyObject" />
       <Property Name="KeyboardAccelerators" Value="Windows.UI.Xaml.DependencyObject" />
       <Property Name="KeyboardAcceleratorPlacementMode" Value="Hidden" />
-      <Property Name="TransformMatrix" Value="{ {M11:1 M12:0 M13:0 M14:0} {M21:0 M22:1 M23:0 M24:0} {M31:0 M32:0 M33:1 M34:0} {M41:0 M42:0 M43:0 M44:1} }" />
     </Element>
     <Element Type="Windows.UI.Xaml.Controls.Grid">
       <Property Name="RowSpacing" Value="0" />
@@ -155,7 +148,7 @@
       <Property Name="AllowFocusOnInteraction" Value="False" />
       <Property Name="ActualTheme" Value="Dark" />
       <Property Name="RenderTransform" Value="Windows.UI.Xaml.Media.MatrixTransform" />
-      <Property Name="DesiredSize" Value="41,56" />
+      <Property Name="DesiredSize" Value="40.8,56" />
       <Property Name="RenderSize" Value="68,56" />
       <Property Name="CompositeMode" Value="Inherit" />
       <Property Name="KeyTipVerticalOffset" Value="0" />
@@ -163,7 +156,6 @@
       <Property Name="Lights" Value="Windows.UI.Xaml.DependencyObject" />
       <Property Name="KeyboardAccelerators" Value="Windows.UI.Xaml.DependencyObject" />
       <Property Name="KeyboardAcceleratorPlacementMode" Value="Hidden" />
-      <Property Name="TransformMatrix" Value="{ {M11:1 M12:0 M13:0 M14:0} {M21:0 M22:1 M23:0 M24:0} {M31:0 M32:0 M33:1 M34:0} {M41:0 M42:0 M43:0 M44:1} }" />
      <Element Type="Windows.UI.Xaml.Controls.Viewbox">
        <Property Name="StretchDirection" Value="Both" />
        <Property Name="Stretch" Value="Uniform" />
@@ -187,7 +179,6 @@
        <Property Name="Lights" Value="Windows.UI.Xaml.DependencyObject" />
        <Property Name="KeyboardAccelerators" Value="Windows.UI.Xaml.DependencyObject" />
        <Property Name="KeyboardAcceleratorPlacementMode" Value="Hidden" />
-       <Property Name="TransformMatrix" Value="{ {M11:1 M12:0 M13:0 M14:0} {M21:0 M22:1 M23:0 M24:0} {M31:0 M32:0 M33:1 M34:0} {M41:0 M42:0 M43:0 M44:1} }" />
       <Element Type="Windows.UI.Xaml.Controls.Border">
         <Property Name="Child" Value="Windows.UI.Xaml.Controls.ContentPresenter" />
         <Property Name="VerticalAlignment" Value="Stretch" />
@@ -206,11 +197,9 @@
         <Property Name="Lights" Value="Windows.UI.Xaml.DependencyObject" />
         <Property Name="KeyboardAccelerators" Value="Windows.UI.Xaml.DependencyObject" />
         <Property Name="KeyboardAcceleratorPlacementMode" Value="Hidden" />
-        <Property Name="TransformMatrix" Value="{ {M11:1 M12:0 M13:0 M14:0} {M21:0 M22:1 M23:0 M24:0} {M31:0 M32:0 M33:1 M34:0} {M41:0 M42:0 M43:0 M44:1} }" />
        <Element Type="Windows.UI.Xaml.Controls.ContentPresenter">
          <Property Name="Foreground" Value="#FFFFFFFF" />
          <Property Name="FontWeight" Value="Windows.UI.Text.FontWeight" />
-         <Property Name="FontStyle" Value="Normal" />
          <Property Name="FontStretch" Value="Normal" />
          <Property Name="FontFamily" Value="Windows.UI.Xaml.Media.FontFamily" />
          <Property Name="TextLineBounds" Value="Full" />
@@ -238,7 +227,6 @@
          <Property Name="Lights" Value="Windows.UI.Xaml.DependencyObject" />
          <Property Name="KeyboardAccelerators" Value="Windows.UI.Xaml.DependencyObject" />
          <Property Name="KeyboardAcceleratorPlacementMode" Value="Hidden" />
-         <Property Name="TransformMatrix" Value="{ {M11:1 M12:0 M13:0 M14:0} {M21:0 M22:1 M23:0 M24:0} {M31:0 M32:0 M33:1 M34:0} {M41:0 M42:0 M43:0 M44:1} }" />
         <Element Type="Windows.UI.Xaml.Controls.SymbolIcon">
           <Property Name="Symbol" Value="Accept" />
           <Property Name="Foreground" Value="#FFFFFFFF" />
@@ -258,7 +246,6 @@
           <Property Name="Lights" Value="Windows.UI.Xaml.DependencyObject" />
           <Property Name="KeyboardAccelerators" Value="Windows.UI.Xaml.DependencyObject" />
           <Property Name="KeyboardAcceleratorPlacementMode" Value="Hidden" />
-          <Property Name="TransformMatrix" Value="{ {M11:1 M12:0 M13:0 M14:0} {M21:0 M22:1 M23:0 M24:0} {M31:0 M32:0 M33:1 M34:0} {M41:0 M42:0 M43:0 M44:1} }" />
          <Element Type="Windows.UI.Xaml.Controls.Grid">
            <Property Name="RowSpacing" Value="0" />
            <Property Name="ColumnSpacing" Value="0" />
@@ -280,7 +267,6 @@
            <Property Name="Lights" Value="Windows.UI.Xaml.DependencyObject" />
            <Property Name="KeyboardAccelerators" Value="Windows.UI.Xaml.DependencyObject" />
            <Property Name="KeyboardAcceleratorPlacementMode" Value="Hidden" />
-           <Property Name="TransformMatrix" Value="{ {M11:1 M12:0 M13:0 M14:0} {M21:0 M22:1 M23:0 M24:0} {M31:0 M32:0 M33:1 M34:0} {M41:0 M42:0 M43:0 M44:1} }" />
           <Element Type="Windows.UI.Xaml.Controls.TextBlock">
             <Property Name="TextWrapping" Value="NoWrap" />
             <Property Name="TextTrimming" Value="None" />
@@ -288,7 +274,6 @@
             <Property Name="Text" Value="" />
             <Property Name="Foreground" Value="#FFFFFFFF" />
             <Property Name="FontWeight" Value="Windows.UI.Text.FontWeight" />
-            <Property Name="FontStyle" Value="Normal" />
             <Property Name="FontStretch" Value="Normal" />
             <Property Name="FontSize" Value="20" />
             <Property Name="FontFamily" Value="Windows.UI.Xaml.Media.FontFamily" />
@@ -302,7 +287,7 @@
             <Property Name="Inlines" Value="Windows.UI.Xaml.Documents.InlineCollection" />
             <Property Name="TextReadingOrder" Value="DetectFromContent" />
             <Property Name="TextLineBounds" Value="Full" />
-            <Property Name="SelectionHighlightColor" Value="#FF0063B1" />
+            <Property Name="SelectionHighlightColor" Value="#FF0078D7" />
             <Property Name="OpticalMarginAlignment" Value="None" />
             <Property Name="MaxLines" Value="0" />
             <Property Name="IsColorFontEnabled" Value="True" />
@@ -329,7 +314,6 @@
             <Property Name="Lights" Value="Windows.UI.Xaml.DependencyObject" />
             <Property Name="KeyboardAccelerators" Value="Windows.UI.Xaml.DependencyObject" />
             <Property Name="KeyboardAcceleratorPlacementMode" Value="Hidden" />
-            <Property Name="TransformMatrix" Value="{ {M11:1 M12:0 M13:0 M14:0} {M21:0 M22:1 M23:0 M24:0} {M31:0 M32:0 M33:1 M34:0} {M41:0 M42:0 M43:0 M44:1} }" />
           </Element>
          </Element>
         </Element>
@@ -343,7 +327,6 @@
        <Property Name="Text" Value="Accept" />
        <Property Name="Foreground" Value="#FFFFFFFF" />
        <Property Name="FontWeight" Value="Windows.UI.Text.FontWeight" />
-       <Property Name="FontStyle" Value="Normal" />
        <Property Name="FontStretch" Value="Normal" />
        <Property Name="FontSize" Value="12" />
        <Property Name="FontFamily" Value="Windows.UI.Xaml.Media.FontFamily" />
@@ -357,7 +340,7 @@
        <Property Name="Inlines" Value="Windows.UI.Xaml.Documents.InlineCollection" />
        <Property Name="TextReadingOrder" Value="DetectFromContent" />
        <Property Name="TextLineBounds" Value="Full" />
-       <Property Name="SelectionHighlightColor" Value="#FF0063B1" />
+       <Property Name="SelectionHighlightColor" Value="#FF0078D7" />
        <Property Name="OpticalMarginAlignment" Value="None" />
        <Property Name="MaxLines" Value="0" />
        <Property Name="IsColorFontEnabled" Value="True" />
@@ -376,7 +359,7 @@
        <Property Name="AllowFocusOnInteraction" Value="False" />
        <Property Name="ActualTheme" Value="Dark" />
        <Property Name="RenderTransform" Value="Windows.UI.Xaml.Media.MatrixTransform" />
-       <Property Name="DesiredSize" Value="41,24" />
+       <Property Name="DesiredSize" Value="40.8,24" />
        <Property Name="RenderSize" Value="64,16" />
        <Property Name="CompositeMode" Value="Inherit" />
        <Property Name="ContextFlyout" Value="Windows.UI.Xaml.Controls.TextCommandBarFlyout" />
@@ -385,7 +368,6 @@
        <Property Name="Lights" Value="Windows.UI.Xaml.DependencyObject" />
        <Property Name="KeyboardAccelerators" Value="Windows.UI.Xaml.DependencyObject" />
        <Property Name="KeyboardAcceleratorPlacementMode" Value="Hidden" />
-       <Property Name="TransformMatrix" Value="{ {M11:1 M12:0 M13:0 M14:0} {M21:0 M22:1 M23:0 M24:0} {M31:0 M32:0 M33:1 M34:0} {M41:0 M42:0 M43:0 M44:1} }" />
      </Element>
      <Element Type="Windows.UI.Xaml.Controls.TextBlock">
        <Property Name="TextWrapping" Value="NoWrap" />
@@ -395,7 +377,6 @@
        <Property Name="Padding" Value="0,5,0,8" />
        <Property Name="Foreground" Value="#FFFFFFFF" />
        <Property Name="FontWeight" Value="Windows.UI.Text.FontWeight" />
-       <Property Name="FontStyle" Value="Normal" />
        <Property Name="FontStretch" Value="Normal" />
        <Property Name="FontFamily" Value="Windows.UI.Xaml.Media.FontFamily" />
        <Property Name="LineStackingStrategy" Value="MaxHeight" />
@@ -408,7 +389,7 @@
        <Property Name="Inlines" Value="Windows.UI.Xaml.Documents.InlineCollection" />
        <Property Name="TextReadingOrder" Value="DetectFromContent" />
        <Property Name="TextLineBounds" Value="Full" />
-       <Property Name="SelectionHighlightColor" Value="#FF0063B1" />
+       <Property Name="SelectionHighlightColor" Value="#FF0078D7" />
        <Property Name="OpticalMarginAlignment" Value="None" />
        <Property Name="MaxLines" Value="0" />
        <Property Name="IsColorFontEnabled" Value="True" />
@@ -437,7 +418,6 @@
        <Property Name="Lights" Value="Windows.UI.Xaml.DependencyObject" />
        <Property Name="KeyboardAccelerators" Value="Windows.UI.Xaml.DependencyObject" />
        <Property Name="KeyboardAcceleratorPlacementMode" Value="Hidden" />
-       <Property Name="TransformMatrix" Value="{ {M11:1 M12:0 M13:0 M14:0} {M21:0 M22:1 M23:0 M24:0} {M31:0 M32:0 M33:1 M34:0} {M41:0 M42:0 M43:0 M44:1} }" />
      </Element>
      <Element Type="Windows.UI.Xaml.Controls.TextBlock">
        <Property Name="TextWrapping" Value="Wrap" />
@@ -446,7 +426,6 @@
        <Property Name="Text" Value="" />
        <Property Name="Foreground" Value="#99FFFFFF" />
        <Property Name="FontWeight" Value="Windows.UI.Text.FontWeight" />
-       <Property Name="FontStyle" Value="Normal" />
        <Property Name="FontStretch" Value="Normal" />
        <Property Name="FontSize" Value="12" />
        <Property Name="FontFamily" Value="Windows.UI.Xaml.Media.FontFamily" />
@@ -460,7 +439,7 @@
        <Property Name="Inlines" Value="Windows.UI.Xaml.Documents.InlineCollection" />
        <Property Name="TextReadingOrder" Value="DetectFromContent" />
        <Property Name="TextLineBounds" Value="Full" />
-       <Property Name="SelectionHighlightColor" Value="#FF0063B1" />
+       <Property Name="SelectionHighlightColor" Value="#FF0078D7" />
        <Property Name="OpticalMarginAlignment" Value="None" />
        <Property Name="MaxLines" Value="0" />
        <Property Name="IsColorFontEnabled" Value="True" />
@@ -470,7 +449,6 @@
        <Property Name="TextHighlighters" Value="Windows.UI.Xaml.DependencyObject" />
        <Property Name="SelectionFlyout" Value="Windows.UI.Xaml.Controls.TextCommandBarFlyout" />
        <Property Name="VerticalAlignment" Value="Center" />
-       <Property Name="Style" Value="Windows.UI.Xaml.Style" />
        <Property Name="Name" Value="KeyboardAcceleratorTextLabel" />
        <Property Name="Margin" Value="24,0,12,0" />
        <Property Name="HorizontalAlignment" Value="Right" />
@@ -491,12 +469,10 @@
        <Property Name="Lights" Value="Windows.UI.Xaml.DependencyObject" />
        <Property Name="KeyboardAccelerators" Value="Windows.UI.Xaml.DependencyObject" />
        <Property Name="KeyboardAcceleratorPlacementMode" Value="Hidden" />
-       <Property Name="TransformMatrix" Value="{ {M11:1 M12:0 M13:0 M14:0} {M21:0 M22:1 M23:0 M24:0} {M31:0 M32:0 M33:1 M34:0} {M41:0 M42:0 M43:0 M44:1} }" />
      </Element>
      <Element Type="Windows.UI.Xaml.Controls.FontIcon">
        <Property Name="Glyph" Value="" />
        <Property Name="FontWeight" Value="Windows.UI.Text.FontWeight" />
-       <Property Name="FontStyle" Value="Normal" />
        <Property Name="FontSize" Value="12" />
        <Property Name="FontFamily" Value="Windows.UI.Xaml.Media.FontFamily" />
        <Property Name="MirroredWhenRightToLeft" Value="True" />
@@ -520,7 +496,6 @@
        <Property Name="Lights" Value="Windows.UI.Xaml.DependencyObject" />
        <Property Name="KeyboardAccelerators" Value="Windows.UI.Xaml.DependencyObject" />
        <Property Name="KeyboardAcceleratorPlacementMode" Value="Hidden" />
-       <Property Name="TransformMatrix" Value="{ {M11:1 M12:0 M13:0 M14:0} {M21:0 M22:1 M23:0 M24:0} {M31:0 M32:0 M33:1 M34:0} {M41:0 M42:0 M43:0 M44:1} }" />
      </Element>
     </Element>
    </Element>
@@ -541,14 +516,12 @@
     <Property Name="IsTabStop" Value="True" />
     <Property Name="Foreground" Value="#FFFFFFFF" />
     <Property Name="FontWeight" Value="Windows.UI.Text.FontWeight" />
-    <Property Name="FontStyle" Value="Normal" />
     <Property Name="FontStretch" Value="Normal" />
     <Property Name="FontFamily" Value="Windows.UI.Xaml.Media.FontFamily" />
     <Property Name="BorderBrush" Value="#00FFFFFF" />
     <Property Name="TabNavigation" Value="Local" />
     <Property Name="Background" Value="#00FFFFFF" />
     <Property Name="VerticalContentAlignment" Value="Center" />
-    <Property Name="Template" Value="Windows.UI.Xaml.Controls.ControlTemplate" />
     <Property Name="UseSystemFocusVisuals" Value="True" />
     <Property Name="Width" Value="68" />
     <Property Name="VerticalAlignment" Value="Top" />
@@ -568,7 +541,6 @@
     <Property Name="Lights" Value="Windows.UI.Xaml.DependencyObject" />
     <Property Name="KeyboardAccelerators" Value="Windows.UI.Xaml.DependencyObject" />
     <Property Name="KeyboardAcceleratorPlacementMode" Value="Hidden" />
-    <Property Name="TransformMatrix" Value="{ {M11:1 M12:0 M13:0 M14:0} {M21:0 M22:1 M23:0 M24:0} {M31:0 M32:0 M33:1 M34:0} {M41:0 M42:0 M43:0 M44:1} }" />
    <Element Type="Windows.UI.Xaml.Controls.Grid">
      <Property Name="BorderBrush" Value="#00FFFFFF" />
      <Property Name="RowSpacing" Value="0" />
@@ -584,7 +556,7 @@
      <Property Name="AllowFocusOnInteraction" Value="False" />
      <Property Name="ActualTheme" Value="Dark" />
      <Property Name="RenderTransform" Value="Windows.UI.Xaml.Media.MatrixTransform" />
-     <Property Name="DesiredSize" Value="39,56" />
+     <Property Name="DesiredSize" Value="39.2,56" />
      <Property Name="RenderSize" Value="68,56" />
      <Property Name="CompositeMode" Value="Inherit" />
      <Property Name="KeyTipVerticalOffset" Value="0" />
@@ -592,7 +564,6 @@
      <Property Name="Lights" Value="Windows.UI.Xaml.DependencyObject" />
      <Property Name="KeyboardAccelerators" Value="Windows.UI.Xaml.DependencyObject" />
      <Property Name="KeyboardAcceleratorPlacementMode" Value="Hidden" />
-     <Property Name="TransformMatrix" Value="{ {M11:1 M12:0 M13:0 M14:0} {M21:0 M22:1 M23:0 M24:0} {M31:0 M32:0 M33:1 M34:0} {M41:0 M42:0 M43:0 M44:1} }" />
     <Element Type="Windows.UI.Xaml.Shapes.Rectangle">
       <Property Name="RadiusY" Value="0" />
       <Property Name="RadiusX" Value="0" />
@@ -605,7 +576,7 @@
       <Property Name="StrokeDashCap" Value="Flat" />
       <Property Name="StrokeDashArray" Value="Windows.UI.Xaml.Media.DoubleCollection" />
       <Property Name="Stretch" Value="Fill" />
-      <Property Name="Fill" Value="#FF0063B1" />
+      <Property Name="Fill" Value="#FF0078D7" />
       <Property Name="GeometryTransform" Value="Windows.UI.Xaml.Media.MatrixTransform" />
       <Property Name="VerticalAlignment" Value="Stretch" />
       <Property Name="Name" Value="CheckedHighlightBackground" />
@@ -625,7 +596,6 @@
       <Property Name="Lights" Value="Windows.UI.Xaml.DependencyObject" />
       <Property Name="KeyboardAccelerators" Value="Windows.UI.Xaml.DependencyObject" />
       <Property Name="KeyboardAcceleratorPlacementMode" Value="Hidden" />
-      <Property Name="TransformMatrix" Value="{ {M11:1 M12:0 M13:0 M14:0} {M21:0 M22:1 M23:0 M24:0} {M31:0 M32:0 M33:1 M34:0} {M41:0 M42:0 M43:0 M44:1} }" />
     </Element>
     <Element Type="Windows.UI.Xaml.Shapes.Rectangle">
       <Property Name="RadiusY" Value="0" />
@@ -658,7 +628,6 @@
       <Property Name="Lights" Value="Windows.UI.Xaml.DependencyObject" />
       <Property Name="KeyboardAccelerators" Value="Windows.UI.Xaml.DependencyObject" />
       <Property Name="KeyboardAcceleratorPlacementMode" Value="Hidden" />
-      <Property Name="TransformMatrix" Value="{ {M11:1 M12:0 M13:0 M14:0} {M21:0 M22:1 M23:0 M24:0} {M31:0 M32:0 M33:1 M34:0} {M41:0 M42:0 M43:0 M44:1} }" />
     </Element>
     <Element Type="Windows.UI.Xaml.Shapes.Rectangle">
       <Property Name="RadiusY" Value="0" />
@@ -691,7 +660,6 @@
       <Property Name="Lights" Value="Windows.UI.Xaml.DependencyObject" />
       <Property Name="KeyboardAccelerators" Value="Windows.UI.Xaml.DependencyObject" />
       <Property Name="KeyboardAcceleratorPlacementMode" Value="Hidden" />
-      <Property Name="TransformMatrix" Value="{ {M11:1 M12:0 M13:0 M14:0} {M21:0 M22:1 M23:0 M24:0} {M31:0 M32:0 M33:1 M34:0} {M41:0 M42:0 M43:0 M44:1} }" />
     </Element>
     <Element Type="Windows.UI.Xaml.Controls.Grid">
       <Property Name="RowSpacing" Value="0" />
@@ -707,7 +675,7 @@
       <Property Name="AllowFocusOnInteraction" Value="False" />
       <Property Name="ActualTheme" Value="Dark" />
       <Property Name="RenderTransform" Value="Windows.UI.Xaml.Media.MatrixTransform" />
-      <Property Name="DesiredSize" Value="39,56" />
+      <Property Name="DesiredSize" Value="39.2,56" />
       <Property Name="RenderSize" Value="68,56" />
       <Property Name="CompositeMode" Value="Inherit" />
       <Property Name="KeyTipVerticalOffset" Value="0" />
@@ -715,7 +683,6 @@
       <Property Name="Lights" Value="Windows.UI.Xaml.DependencyObject" />
       <Property Name="KeyboardAccelerators" Value="Windows.UI.Xaml.DependencyObject" />
       <Property Name="KeyboardAcceleratorPlacementMode" Value="Hidden" />
-      <Property Name="TransformMatrix" Value="{ {M11:1 M12:0 M13:0 M14:0} {M21:0 M22:1 M23:0 M24:0} {M31:0 M32:0 M33:1 M34:0} {M41:0 M42:0 M43:0 M44:1} }" />
      <Element Type="Windows.UI.Xaml.Controls.TextBlock">
        <Property Name="TextWrapping" Value="NoWrap" />
        <Property Name="TextTrimming" Value="None" />
@@ -723,7 +690,6 @@
        <Property Name="Text" Value="" />
        <Property Name="Foreground" Value="#FFFFFFFF" />
        <Property Name="FontWeight" Value="Windows.UI.Text.FontWeight" />
-       <Property Name="FontStyle" Value="Normal" />
        <Property Name="FontStretch" Value="Normal" />
        <Property Name="FontSize" Value="16" />
        <Property Name="FontFamily" Value="Windows.UI.Xaml.Media.FontFamily" />
@@ -737,7 +703,7 @@
        <Property Name="Inlines" Value="Windows.UI.Xaml.Documents.InlineCollection" />
        <Property Name="TextReadingOrder" Value="DetectFromContent" />
        <Property Name="TextLineBounds" Value="Full" />
-       <Property Name="SelectionHighlightColor" Value="#FF0063B1" />
+       <Property Name="SelectionHighlightColor" Value="#FF0078D7" />
        <Property Name="OpticalMarginAlignment" Value="None" />
        <Property Name="MaxLines" Value="0" />
        <Property Name="IsColorFontEnabled" Value="True" />
@@ -770,7 +736,6 @@
        <Property Name="Lights" Value="Windows.UI.Xaml.DependencyObject" />
        <Property Name="KeyboardAccelerators" Value="Windows.UI.Xaml.DependencyObject" />
        <Property Name="KeyboardAcceleratorPlacementMode" Value="Hidden" />
-       <Property Name="TransformMatrix" Value="{ {M11:1 M12:0 M13:0 M14:0} {M21:0 M22:1 M23:0 M24:0} {M31:0 M32:0 M33:1 M34:0} {M41:0 M42:0 M43:0 M44:1} }" />
      </Element>
      <Element Type="Windows.UI.Xaml.Controls.Viewbox">
        <Property Name="StretchDirection" Value="Both" />
@@ -795,7 +760,6 @@
        <Property Name="Lights" Value="Windows.UI.Xaml.DependencyObject" />
        <Property Name="KeyboardAccelerators" Value="Windows.UI.Xaml.DependencyObject" />
        <Property Name="KeyboardAcceleratorPlacementMode" Value="Hidden" />
-       <Property Name="TransformMatrix" Value="{ {M11:1 M12:0 M13:0 M14:0} {M21:0 M22:1 M23:0 M24:0} {M31:0 M32:0 M33:1 M34:0} {M41:0 M42:0 M43:0 M44:1} }" />
       <Element Type="Windows.UI.Xaml.Controls.Border">
         <Property Name="Child" Value="Windows.UI.Xaml.Controls.ContentPresenter" />
         <Property Name="VerticalAlignment" Value="Stretch" />
@@ -814,11 +778,9 @@
         <Property Name="Lights" Value="Windows.UI.Xaml.DependencyObject" />
         <Property Name="KeyboardAccelerators" Value="Windows.UI.Xaml.DependencyObject" />
         <Property Name="KeyboardAcceleratorPlacementMode" Value="Hidden" />
-        <Property Name="TransformMatrix" Value="{ {M11:1 M12:0 M13:0 M14:0} {M21:0 M22:1 M23:0 M24:0} {M31:0 M32:0 M33:1 M34:0} {M41:0 M42:0 M43:0 M44:1} }" />
        <Element Type="Windows.UI.Xaml.Controls.ContentPresenter">
          <Property Name="Foreground" Value="#FFFFFFFF" />
          <Property Name="FontWeight" Value="Windows.UI.Text.FontWeight" />
-         <Property Name="FontStyle" Value="Normal" />
          <Property Name="FontStretch" Value="Normal" />
          <Property Name="FontFamily" Value="Windows.UI.Xaml.Media.FontFamily" />
          <Property Name="TextLineBounds" Value="Full" />
@@ -846,7 +808,6 @@
          <Property Name="Lights" Value="Windows.UI.Xaml.DependencyObject" />
          <Property Name="KeyboardAccelerators" Value="Windows.UI.Xaml.DependencyObject" />
          <Property Name="KeyboardAcceleratorPlacementMode" Value="Hidden" />
-         <Property Name="TransformMatrix" Value="{ {M11:1 M12:0 M13:0 M14:0} {M21:0 M22:1 M23:0 M24:0} {M31:0 M32:0 M33:1 M34:0} {M41:0 M42:0 M43:0 M44:1} }" />
         <Element Type="Windows.UI.Xaml.Controls.SymbolIcon">
           <Property Name="Symbol" Value="Dislike" />
           <Property Name="Foreground" Value="#FFFFFFFF" />
@@ -866,7 +827,6 @@
           <Property Name="Lights" Value="Windows.UI.Xaml.DependencyObject" />
           <Property Name="KeyboardAccelerators" Value="Windows.UI.Xaml.DependencyObject" />
           <Property Name="KeyboardAcceleratorPlacementMode" Value="Hidden" />
-          <Property Name="TransformMatrix" Value="{ {M11:1 M12:0 M13:0 M14:0} {M21:0 M22:1 M23:0 M24:0} {M31:0 M32:0 M33:1 M34:0} {M41:0 M42:0 M43:0 M44:1} }" />
          <Element Type="Windows.UI.Xaml.Controls.Grid">
            <Property Name="RowSpacing" Value="0" />
            <Property Name="ColumnSpacing" Value="0" />
@@ -888,7 +848,6 @@
            <Property Name="Lights" Value="Windows.UI.Xaml.DependencyObject" />
            <Property Name="KeyboardAccelerators" Value="Windows.UI.Xaml.DependencyObject" />
            <Property Name="KeyboardAcceleratorPlacementMode" Value="Hidden" />
-           <Property Name="TransformMatrix" Value="{ {M11:1 M12:0 M13:0 M14:0} {M21:0 M22:1 M23:0 M24:0} {M31:0 M32:0 M33:1 M34:0} {M41:0 M42:0 M43:0 M44:1} }" />
           <Element Type="Windows.UI.Xaml.Controls.TextBlock">
             <Property Name="TextWrapping" Value="NoWrap" />
             <Property Name="TextTrimming" Value="None" />
@@ -896,7 +855,6 @@
             <Property Name="Text" Value="" />
             <Property Name="Foreground" Value="#FFFFFFFF" />
             <Property Name="FontWeight" Value="Windows.UI.Text.FontWeight" />
-            <Property Name="FontStyle" Value="Normal" />
             <Property Name="FontStretch" Value="Normal" />
             <Property Name="FontSize" Value="20" />
             <Property Name="FontFamily" Value="Windows.UI.Xaml.Media.FontFamily" />
@@ -910,7 +868,7 @@
             <Property Name="Inlines" Value="Windows.UI.Xaml.Documents.InlineCollection" />
             <Property Name="TextReadingOrder" Value="DetectFromContent" />
             <Property Name="TextLineBounds" Value="Full" />
-            <Property Name="SelectionHighlightColor" Value="#FF0063B1" />
+            <Property Name="SelectionHighlightColor" Value="#FF0078D7" />
             <Property Name="OpticalMarginAlignment" Value="None" />
             <Property Name="MaxLines" Value="0" />
             <Property Name="IsColorFontEnabled" Value="True" />
@@ -937,7 +895,6 @@
             <Property Name="Lights" Value="Windows.UI.Xaml.DependencyObject" />
             <Property Name="KeyboardAccelerators" Value="Windows.UI.Xaml.DependencyObject" />
             <Property Name="KeyboardAcceleratorPlacementMode" Value="Hidden" />
-            <Property Name="TransformMatrix" Value="{ {M11:1 M12:0 M13:0 M14:0} {M21:0 M22:1 M23:0 M24:0} {M31:0 M32:0 M33:1 M34:0} {M41:0 M42:0 M43:0 M44:1} }" />
           </Element>
          </Element>
         </Element>
@@ -951,7 +908,6 @@
        <Property Name="Text" Value="Dislike" />
        <Property Name="Foreground" Value="#FFFFFFFF" />
        <Property Name="FontWeight" Value="Windows.UI.Text.FontWeight" />
-       <Property Name="FontStyle" Value="Normal" />
        <Property Name="FontStretch" Value="Normal" />
        <Property Name="FontSize" Value="12" />
        <Property Name="FontFamily" Value="Windows.UI.Xaml.Media.FontFamily" />
@@ -965,7 +921,7 @@
        <Property Name="Inlines" Value="Windows.UI.Xaml.Documents.InlineCollection" />
        <Property Name="TextReadingOrder" Value="DetectFromContent" />
        <Property Name="TextLineBounds" Value="Full" />
-       <Property Name="SelectionHighlightColor" Value="#FF0063B1" />
+       <Property Name="SelectionHighlightColor" Value="#FF0078D7" />
        <Property Name="OpticalMarginAlignment" Value="None" />
        <Property Name="MaxLines" Value="0" />
        <Property Name="IsColorFontEnabled" Value="True" />
@@ -984,7 +940,7 @@
        <Property Name="AllowFocusOnInteraction" Value="False" />
        <Property Name="ActualTheme" Value="Dark" />
        <Property Name="RenderTransform" Value="Windows.UI.Xaml.Media.MatrixTransform" />
-       <Property Name="DesiredSize" Value="39,24" />
+       <Property Name="DesiredSize" Value="39.2,24" />
        <Property Name="RenderSize" Value="64,16" />
        <Property Name="CompositeMode" Value="Inherit" />
        <Property Name="ContextFlyout" Value="Windows.UI.Xaml.Controls.TextCommandBarFlyout" />
@@ -993,7 +949,6 @@
        <Property Name="Lights" Value="Windows.UI.Xaml.DependencyObject" />
        <Property Name="KeyboardAccelerators" Value="Windows.UI.Xaml.DependencyObject" />
        <Property Name="KeyboardAcceleratorPlacementMode" Value="Hidden" />
-       <Property Name="TransformMatrix" Value="{ {M11:1 M12:0 M13:0 M14:0} {M21:0 M22:1 M23:0 M24:0} {M31:0 M32:0 M33:1 M34:0} {M41:0 M42:0 M43:0 M44:1} }" />
      </Element>
      <Element Type="Windows.UI.Xaml.Controls.TextBlock">
        <Property Name="TextWrapping" Value="NoWrap" />
@@ -1003,7 +958,6 @@
        <Property Name="Padding" Value="0,5,0,8" />
        <Property Name="Foreground" Value="#FFFFFFFF" />
        <Property Name="FontWeight" Value="Windows.UI.Text.FontWeight" />
-       <Property Name="FontStyle" Value="Normal" />
        <Property Name="FontStretch" Value="Normal" />
        <Property Name="FontFamily" Value="Windows.UI.Xaml.Media.FontFamily" />
        <Property Name="LineStackingStrategy" Value="MaxHeight" />
@@ -1016,7 +970,7 @@
        <Property Name="Inlines" Value="Windows.UI.Xaml.Documents.InlineCollection" />
        <Property Name="TextReadingOrder" Value="DetectFromContent" />
        <Property Name="TextLineBounds" Value="Full" />
-       <Property Name="SelectionHighlightColor" Value="#FF0063B1" />
+       <Property Name="SelectionHighlightColor" Value="#FF0078D7" />
        <Property Name="OpticalMarginAlignment" Value="None" />
        <Property Name="MaxLines" Value="0" />
        <Property Name="IsColorFontEnabled" Value="True" />
@@ -1045,7 +999,6 @@
        <Property Name="Lights" Value="Windows.UI.Xaml.DependencyObject" />
        <Property Name="KeyboardAccelerators" Value="Windows.UI.Xaml.DependencyObject" />
        <Property Name="KeyboardAcceleratorPlacementMode" Value="Hidden" />
-       <Property Name="TransformMatrix" Value="{ {M11:1 M12:0 M13:0 M14:0} {M21:0 M22:1 M23:0 M24:0} {M31:0 M32:0 M33:1 M34:0} {M41:0 M42:0 M43:0 M44:1} }" />
      </Element>
      <Element Type="Windows.UI.Xaml.Controls.TextBlock">
        <Property Name="TextWrapping" Value="Wrap" />
@@ -1054,7 +1007,6 @@
        <Property Name="Text" Value="" />
        <Property Name="Foreground" Value="#99FFFFFF" />
        <Property Name="FontWeight" Value="Windows.UI.Text.FontWeight" />
-       <Property Name="FontStyle" Value="Normal" />
        <Property Name="FontStretch" Value="Normal" />
        <Property Name="FontSize" Value="12" />
        <Property Name="FontFamily" Value="Windows.UI.Xaml.Media.FontFamily" />
@@ -1068,7 +1020,7 @@
        <Property Name="Inlines" Value="Windows.UI.Xaml.Documents.InlineCollection" />
        <Property Name="TextReadingOrder" Value="DetectFromContent" />
        <Property Name="TextLineBounds" Value="Full" />
-       <Property Name="SelectionHighlightColor" Value="#FF0063B1" />
+       <Property Name="SelectionHighlightColor" Value="#FF0078D7" />
        <Property Name="OpticalMarginAlignment" Value="None" />
        <Property Name="MaxLines" Value="0" />
        <Property Name="IsColorFontEnabled" Value="True" />
@@ -1078,7 +1030,6 @@
        <Property Name="TextHighlighters" Value="Windows.UI.Xaml.DependencyObject" />
        <Property Name="SelectionFlyout" Value="Windows.UI.Xaml.Controls.TextCommandBarFlyout" />
        <Property Name="VerticalAlignment" Value="Center" />
-       <Property Name="Style" Value="Windows.UI.Xaml.Style" />
        <Property Name="Name" Value="KeyboardAcceleratorTextLabel" />
        <Property Name="Margin" Value="24,0,12,0" />
        <Property Name="HorizontalAlignment" Value="Right" />
@@ -1099,7 +1050,6 @@
        <Property Name="Lights" Value="Windows.UI.Xaml.DependencyObject" />
        <Property Name="KeyboardAccelerators" Value="Windows.UI.Xaml.DependencyObject" />
        <Property Name="KeyboardAcceleratorPlacementMode" Value="Hidden" />
-       <Property Name="TransformMatrix" Value="{ {M11:1 M12:0 M13:0 M14:0} {M21:0 M22:1 M23:0 M24:0} {M31:0 M32:0 M33:1 M34:0} {M41:0 M42:0 M43:0 M44:1} }" />
      </Element>
     </Element>
    </Element>

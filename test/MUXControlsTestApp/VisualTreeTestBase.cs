@@ -40,19 +40,19 @@ namespace Windows.UI.Xaml.Tests.MUXControls.ApiTests
     {
         public const string LogMasterFileRuntimeParameterName = "LogMasterFile";
 
+        public VisualTreeDumper.IFilter VisualTreeDumpFilter { get; set; }
+        public VisualTreeDumper.IPropertyValueTranslator PropertyValueTranslator { get; set; }
+
         public TestContext TestContext { get; set; }
-        
+
         public bool ShouldLogMasterFile { get; set; }
 
         public string TestCaseName { get; private set; }
 
-        // To avoid filename conflict for master file, we use the format of [testclass]_[testname] as prefix.
+        // To avoid filename conflict for master file, we use the format of [testclass]_[testname] as prefix by default.
         // For example, Windows.UI.Xaml.Tests.MUXControls.ApiTests.NavigationViewVisualTreeTests.VerifyVisualTreeForNavView
         // The prefix is NavigationViewVisualTreeTests_VerifyVisualTreeForNavView
         public string MasterFileNamePrefix { get; set; }
-        public string MasterFileNameInPrefix { get; set; }
-
-        public string MasterFileNamePrefixAndInfix { get { return String.IsNullOrEmpty(MasterFileNameInPrefix) ? MasterFileNamePrefix : MasterFileNamePrefix + "_" + MasterFileNameInPrefix; } }
 
         public UIElement SetupVisualTree(string xaml)
         {
@@ -63,58 +63,49 @@ namespace Windows.UI.Xaml.Tests.MUXControls.ApiTests
                 MUXControlsTestApp.App.TestContentRoot = root;
             });
 
-            MUXControlsTestApp.Utilities.IdleSynchronizer.Wait();   
+            MUXControlsTestApp.Utilities.IdleSynchronizer.Wait();
             return root;
         }
 
         public void VerifyVisualTree(string xaml)
         {
             var root = SetupVisualTree(xaml);
-
             VerifyVisualTree(root, Theme.All);
         }
 
         public void VerifyVisualTree(UIElement root, Theme theme)
         {
-            if (theme == Theme.All)
-            {
-                VerifyVisualTreeForAllTheme(root);
-            }
-            else
-            {
-                VerifyVisualTree(root, theme.ToString());
-            }
-        }
-
-        public void VerifyVisualTree(UIElement root, String masterFileInfix)
-        {
-            MasterFileNameInPrefix = masterFileInfix;
-            VisualTreeCompare(root);
-        }
-
-        private void VerifyVisualTree(UIElement root)
-        {
-            VisualTreeCompare(root);
-        }
-
-        private void VerifyVisualTreeForAllTheme(UIElement root)
-        {
             var element = root as FrameworkElement;
             CheckTrue(element != null, "Expect FrameworkElement");
 
             bool hasError = false;
-            foreach (var theme in new List<ElementTheme>() { ElementTheme.Dark, ElementTheme.Light})
+
+            List<ElementTheme> themes = new List<ElementTheme>();
+            if (theme == Theme.Dark)
             {
-                Log.Comment("Request Theme: " + theme.ToString());
+                themes.Add(ElementTheme.Dark);
+            }
+            else if (theme == Theme.Light)
+            {
+                themes.Add(ElementTheme.Light);
+            }
+            else if (theme == Theme.All)
+            {
+                themes = new List<ElementTheme>() { ElementTheme.Dark, ElementTheme.Light };
+            }
+
+            foreach (var requestedTheme in themes)
+            {
+                Log.Comment("Request Theme: " + requestedTheme.ToString());
                 RunOnUIThread.Execute(() =>
                 {
-                    element.RequestedTheme = theme;
+                    element.RequestedTheme = requestedTheme;
                 });
 
                 try
                 {
-                    Log.Comment("VerifyVisualTree");
-                    VerifyVisualTree(root, theme.ToString());
+                    Log.Comment("VerifyVisualTree for " + requestedTheme.ToString());
+                    VerifyVisualTree(root, requestedTheme.ToString());
                 }
                 catch (Exception e)
                 {
@@ -122,7 +113,17 @@ namespace Windows.UI.Xaml.Tests.MUXControls.ApiTests
                     Log.Comment(e.Message);
                 }
             }
-            Verify.IsFalse(hasError, "VerifyVisualTreeForAllTheme failed");
+            Verify.IsFalse(hasError, "VerifyVisualTree should not have error");
+        }
+
+        public void VerifyVisualTree(UIElement root, String customName)
+        {
+            VisualTreeCompare(root, MasterFileNamePrefix, customName);
+        }
+
+        private void VerifyVisualTree(UIElement root)
+        {
+            VisualTreeCompare(root, MasterFileNamePrefix, "");
         }
 
         [TestInitialize]
@@ -141,58 +142,16 @@ namespace Windows.UI.Xaml.Tests.MUXControls.ApiTests
             }
 
             String[] elements = testCaseFullName.Split('.');
-
-            TestCaseName = elements[elements.Length-1];
+            TestCaseName = elements[elements.Length - 1];
             MasterFileNamePrefix = elements[elements.Length - 2] + "_" + TestCaseName;
-
+            VisualTreeDumpFilter = null;
+            PropertyValueTranslator = null;
             LogTestContext();
             ShouldLogMasterFile = TestContextContainsKey(LogMasterFileRuntimeParameterName);
 
             OnTestInitialized();
         }
         protected virtual void OnTestInitialized() { }
-
-        protected string GetMasterFileContent(string fileName)
-        {
-            return GetMasterFileContentAsync(fileName).Result;
-        }
-
-        protected bool IsMasterFilePresent(string fileName)
-        {
-            return IsMasterFilePresentAsync(fileName).Result;
-        }
-
-        private async Task<string> GetMasterFileContentAsync(string fileName)
-        {
-            var uri = new Uri("ms-appx:///master/" + fileName);
-            string content = "";
-
-            try
-            {
-                var file = await StorageFile.GetFileFromApplicationUriAsync(uri);
-                content = await FileIO.ReadTextAsync(file);
-            }
-            catch (FileNotFoundException)
-            {
-                Verify.Fail("File not found: " + fileName);
-            }
-            return content;
-        }
-
-        private async Task<bool> IsMasterFilePresentAsync(string fileName)
-        {
-            var uri = new Uri("ms-appx:///master/" + fileName);
-            try
-            {
-                var file = await StorageFile.GetFileFromApplicationUriAsync(uri);
-                await FileIO.ReadTextAsync(file);
-                return true;
-            }
-            catch (FileNotFoundException)
-            {
-                return false;
-            }
-        }
 
         private void LogTestContext()
         {
@@ -212,111 +171,53 @@ namespace Windows.UI.Xaml.Tests.MUXControls.ApiTests
             }
         }
 
-        private void WriteLocalFile(string fileName, string content)
-        {
-            WriteLocalFileAsync(fileName, content).Wait();
-        }
 
-        private StorageFolder GetStorageFolder()
-        {
-            return ShouldLogMasterFile ? KnownFolders.MusicLibrary : ApplicationData.Current.LocalFolder;
-        }
-
-        private async Task WriteLocalFileAsync(string fileName, string content)
-        {
-            StorageFolder storageFolder = GetStorageFolder();
-            var file = await storageFolder.CreateFileAsync(fileName, CreationCollisionOption.ReplaceExisting);
-            await FileIO.WriteTextAsync(file, content);
-        }
-
-        private string GetExpectedMasterFileName()
-        {
-            return String.Format("{0}-{1}.xml", MasterFileNamePrefixAndInfix, PlatformConfiguration.GetCurrentAPIVersion());
-        }
-
-        private string GetMasterFileNameNoAPIVersion()
-        {
-            return MasterFileNamePrefixAndInfix + ".xml";
-        }
-
-        private string GetMasterFileToBeCompared()
-        {
-            for (ushort version = PlatformConfiguration.GetCurrentAPIVersion(); version >= 2; version--)
-            {
-                var fileName = String.Format("{0}-{1}.xml", MasterFileNamePrefixAndInfix, version);
-                if (IsMasterFilePresent(fileName))
-                {
-                    return fileName;
-                }
-            }
-            {
-                var fileName = GetMasterFileNameNoAPIVersion();
-                if (IsMasterFilePresent(fileName))
-                {
-                    return fileName;
-                }
-            }
-            return "";
-        }
-
-        private void VisualTreeCompare(UIElement root)
+        private void VisualTreeCompare(UIElement root, string masterFilePrefix, string theme)
         {
             string content = "";
             string expectedContent = "";
 
             RunOnUIThread.Execute(() =>
             {
-                content = VisualTreeDumper.DumpToXML(root);
+                content = VisualTreeDumper.DumpToXML(root, PropertyValueTranslator, VisualTreeDumpFilter);
             });
 
-            var bestMatchedMasterFileName = GetMasterFileToBeCompared();
-            var expectedMasterFileName = GetExpectedMasterFileName();
+            MasterFileStorage storage = new MasterFileStorage(!ShouldLogMasterFile, masterFilePrefix, theme);
+            string bestMatchedMasterFileName = storage.BestMatchedMasterFileName;
+            string expectedMasterFileName = storage.ExpectedMasterFileName;
 
             Log.Comment("Target master file: " + expectedMasterFileName);
             Log.Comment("Best matched master file: " + bestMatchedMasterFileName);
 
-            CompareResult result = new CompareResult();
+            XMLCompare result = new XMLCompare("", "");
             if (String.IsNullOrEmpty(bestMatchedMasterFileName))
             {
                 result.AddError("Can't find master file for " + TestCaseName);
             }
             else
             {
-                expectedContent = GetMasterFileContent(bestMatchedMasterFileName);
-                result = CompareXML(content, expectedContent);
+                expectedContent = MasterFileStorage.GetMasterFileContent(bestMatchedMasterFileName);
+                result = new XMLCompare(content, expectedContent);
             }
 
             if (result.HasError())
             {
-                WriteLocalFile(expectedMasterFileName, content);
-                WriteLocalFile(expectedMasterFileName + ".orig", expectedContent);
+                storage.LogMasterFile(expectedMasterFileName, content);
+                storage.LogMasterFile(expectedMasterFileName + ".orig", expectedContent);
 
                 Log.Comment(result.ToString());
-                var error = String.Format("Compare failed, but {0} is put into {1}", expectedMasterFileName, GetStorageFolder().Path);
+                string error = String.Format("Compare failed, but {0} is put into {1}", expectedMasterFileName, storage.StorageLocation);
                 Verify.Fail(error);
             }
         }
 
-
-
-        // Avoid too much logs
+        // Avoid too much logs, and only log message when !flag.
         private void CheckTrue(bool flag, string message)
-        {
+        {           
             if (!flag)
             {
                 Verify.Fail(message);
             }
-        }
-        private CompareResult CompareXML(string content, string expectedContent)
-        {
-            var result = new CompareResult();
-
-            // A directly string comparision and should be replaced in future
-            if (!content.Trim().Equals(expectedContent.Trim()))
-            {
-                result.AddError("content doesn't match");
-            }
-            return result;
         }
 
         private bool TestContextContainsKey(string key)
@@ -324,13 +225,109 @@ namespace Windows.UI.Xaml.Tests.MUXControls.ApiTests
 #if USING_TAEF
            return TestContext.Properties.Contains(key);
 #else
-           return TestContext.Properties.ContainsKey(key);
+            return TestContext.Properties.ContainsKey(key);
 #endif
         }
     }
 
-    class CompareResult
+    class MasterFileStorage
     {
+        private StorageFolder _storage;
+        public string StorageLocation { get; private set; }
+        public string ExpectedMasterFileName { get; private set; }
+        public string BestMatchedMasterFileName { get; private set; }
+        public MasterFileStorage(bool useLocalStorage, string masterFileNamePrefix, string theme)
+        {
+            _storage = useLocalStorage ? ApplicationData.Current.LocalFolder : KnownFolders.MusicLibrary;
+            string prefix = String.IsNullOrEmpty(theme) ? masterFileNamePrefix : masterFileNamePrefix + "-" + theme;
+            ExpectedMasterFileName = GetExpectedMasterFileName(prefix);
+            BestMatchedMasterFileName = SearchBestMatchedMasterFileName(prefix);
+            StorageLocation = useLocalStorage ? ApplicationData.Current.LocalFolder.Path : "MusicLibrary";
+        }
+
+        public void LogMasterFile(string fileName, string content)
+        {
+            LogMasterFile(_storage, fileName, content);
+        }
+
+        private string GetExpectedMasterFileName(string fileNamePrefix)
+        {
+            return String.Format("{0}-{1}.xml", fileNamePrefix, PlatformConfiguration.GetCurrentAPIVersion());
+        }
+
+        private string SearchBestMatchedMasterFileName(string fileNamePrefix)
+        {
+            for (ushort version = PlatformConfiguration.GetCurrentAPIVersion(); version >= 2; version--)
+            {
+                string fileName = String.Format("{0}-{1}.xml", fileNamePrefix, version);
+                if (MasterFileStorage.IsMasterFilePresent(fileName))
+                {
+                    return fileName;
+                }
+            }
+            {
+                string fileName = fileNamePrefix + ".xml";
+                if (MasterFileStorage.IsMasterFilePresent(fileName))
+                {
+                    return fileName;
+                }
+            }
+            return null;
+        }
+
+        public static string GetMasterFileContent(string fileName)
+        {
+            return GetMasterFileContentAsync(fileName).Result;
+        }
+
+        public static bool IsMasterFilePresent(string fileName)
+        {
+            try
+            {
+                GetMasterFileContentAsync(fileName).Wait();
+                return true;
+            }
+            catch (AggregateException ae)
+            {
+                ae.Handle((x) =>
+                {
+                    return (x is FileNotFoundException); // This we know how to handle.
+                });
+                return false;
+            }
+        }
+
+        public static void LogMasterFile(StorageFolder storageFolder, string fileName, string content)
+        {
+            LogMasterFileAsync(storageFolder, fileName, content).Wait();
+        }
+
+        private static readonly string MasterFileFullPathPrefix = "ms-appx:///master/";
+
+        private static async Task<string> GetMasterFileContentAsync(string fileName)
+        {
+            Uri uri = new Uri(MasterFileFullPathPrefix + fileName);
+            var file = await StorageFile.GetFileFromApplicationUriAsync(uri);
+            return await FileIO.ReadTextAsync(file);
+        }
+
+        private static async Task LogMasterFileAsync(StorageFolder storageFolder, string fileName, string content)
+        {
+            var file = await storageFolder.CreateFileAsync(fileName, CreationCollisionOption.ReplaceExisting);
+            await FileIO.WriteTextAsync(file, content);
+        }
+    }
+
+    class XMLCompare
+    {
+        public XMLCompare(string xml1, string xml2)
+        {
+            // A directly string comparision and should be replaced in future
+            if (!xml1.Trim().Equals(xml2.Trim()))
+            {
+                AddError("content doesn't match");
+            }
+        }
         private StringBuilder _sb = new StringBuilder();
 
         public bool HasError()

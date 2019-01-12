@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Element Type="Windows.UI.Xaml.Controls.Grid">
+  <Property Name="RowSpacing" Value="0" />
+  <Property Name="ColumnSpacing" Value="0" />
+  <Property Name="IsItemsHost" Value="False" />
+  <Property Name="Width" Value="400" />
+  <Property Name="VerticalAlignment" Value="Stretch" />
+  <Property Name="Height" Value="400" />
+  <Property Name="FocusVisualSecondaryBrush" Value="#99000000" />
+  <Property Name="FocusVisualPrimaryBrush" Value="#FFFFFFFF" />
+  <Property Name="RenderTransform" Value="Windows.UI.Xaml.Media.MatrixTransform" />
+  <Property Name="DesiredSize" Value="400,400" />
+  <Property Name="RenderSize" Value="400,400" />
+  <Property Name="CompositeMode" Value="Inherit" />
+  <Property Name="KeyTipVerticalOffset" Value="0" />
+  <Property Name="KeyTipPlacementMode" Value="Auto" />
+  <Property Name="Lights" Value="Windows.UI.Xaml.DependencyObject" />
+  <Property Name="KeyboardAccelerators" Value="Windows.UI.Xaml.DependencyObject" />
+ <Element Type="Windows.UI.Xaml.Controls.TextBlock">
+   <Property Name="TextWrapping" Value="NoWrap" />
+   <Property Name="TextTrimming" Value="None" />
+   <Property Name="TextAlignment" Value="Left" />
+   <Property Name="Text" Value="Abc" />
+   <Property Name="Foreground" Value="#FFFFFFFF" />
+   <Property Name="FontWeight" Value="Windows.UI.Text.FontWeight" />
+   <Property Name="FontStretch" Value="Normal" />
+   <Property Name="FontFamily" Value="Windows.UI.Xaml.Media.FontFamily" />
+   <Property Name="LineStackingStrategy" Value="MaxHeight" />
+   <Property Name="LineHeight" Value="0" />
+   <Property Name="IsTextSelectionEnabled" Value="False" />
+   <Property Name="SelectedText" Value="" />
+   <Property Name="BaselineOffset" Value="15.107421875" />
+   <Property Name="ContentEnd" Value="Windows.UI.Xaml.Documents.TextPointer" />
+   <Property Name="ContentStart" Value="Windows.UI.Xaml.Documents.TextPointer" />
+   <Property Name="Inlines" Value="Windows.UI.Xaml.Documents.InlineCollection" />
+   <Property Name="TextReadingOrder" Value="DetectFromContent" />
+   <Property Name="TextLineBounds" Value="Full" />
+   <Property Name="SelectionHighlightColor" Value="#FF0078D7" />
+   <Property Name="OpticalMarginAlignment" Value="None" />
+   <Property Name="MaxLines" Value="0" />
+   <Property Name="IsColorFontEnabled" Value="True" />
+   <Property Name="TextDecorations" Value="None" />
+   <Property Name="HorizontalTextAlignment" Value="Left" />
+   <Property Name="IsTextTrimmed" Value="False" />
+   <Property Name="TextHighlighters" Value="Windows.UI.Xaml.DependencyObject" />
+   <Property Name="SelectionFlyout" Value="Windows.UI.Xaml.Controls.TextCommandBarFlyout" />
+   <Property Name="VerticalAlignment" Value="Stretch" />
+   <Property Name="FocusVisualSecondaryBrush" Value="#99000000" />
+   <Property Name="FocusVisualPrimaryBrush" Value="#FFFFFFFF" />
+   <Property Name="RenderTransform" Value="Windows.UI.Xaml.Media.MatrixTransform" />
+   <Property Name="DesiredSize" Value="24,19.2" />
+   <Property Name="RenderSize" Value="400,400" />
+   <Property Name="CompositeMode" Value="Inherit" />
+   <Property Name="ContextFlyout" Value="Windows.UI.Xaml.Controls.TextCommandBarFlyout" />
+   <Property Name="KeyTipVerticalOffset" Value="0" />
+   <Property Name="KeyTipPlacementMode" Value="Auto" />
+   <Property Name="Lights" Value="Windows.UI.Xaml.DependencyObject" />
+   <Property Name="KeyboardAccelerators" Value="Windows.UI.Xaml.DependencyObject" />
+ </Element>
+</Element>

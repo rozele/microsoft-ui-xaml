@@ -12,6 +12,9 @@ using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using MUXControls.TestAppUtils;
+using PlatformConfiguration = Common.PlatformConfiguration;
+using OSVersion = Common.OSVersion;
 
 #if USING_TAEF
 using WEX.TestExecution;
@@ -45,6 +48,103 @@ namespace Windows.UI.Xaml.Tests.MUXControls.ApiTests
                             </StackPanel>
                        </Grid>";
             VerifyVisualTree(xaml);
+        }
+
+        [TestMethod]
+        public void VerifyVisualTreeExampleLoadAndVerifyForAllThemes()
+        {
+            if (PlatformConfiguration.IsOSVersionLessThan(OSVersion.Redstone5))
+            {
+                return;
+            }
+
+            var xaml = @"<Grid Width='400' Height='400' xmlns='http://schemas.microsoft.com/winfx/2006/xaml/presentation' xmlns:x='http://schemas.microsoft.com/winfx/2006/xaml'> 
+                       </Grid>";
+            VerifyVisualTree(xaml);
+        }
+
+        [TestMethod]
+        public void VerifyVisualTreeExampleLoadAndVerifyForDarkThemeWithCustomName()
+        {
+            if (PlatformConfiguration.IsOSVersionLessThan(OSVersion.Redstone5))
+            {
+                return;
+            }
+
+            var xaml = @"<Grid Width='400' Height='400' xmlns='http://schemas.microsoft.com/winfx/2006/xaml/presentation' xmlns:x='http://schemas.microsoft.com/winfx/2006/xaml'> 
+                       </Grid>";
+            UIElement root = SetupVisualTree(xaml);
+            RunOnUIThread.Execute(() =>
+            {
+                (root as FrameworkElement).RequestedTheme = ElementTheme.Dark;
+            });
+            VerifyVisualTree(root, "CustomName");
+        }
+
+        [TestMethod]
+        public void VerifyVisualTreeExampleForLightTheme()
+        {
+            if (PlatformConfiguration.IsOSVersionLessThan(OSVersion.Redstone5))
+            {
+                return;
+            }
+
+            var xaml = @"<Grid Width='400' Height='400' xmlns='http://schemas.microsoft.com/winfx/2006/xaml/presentation' xmlns:x='http://schemas.microsoft.com/winfx/2006/xaml'> 
+                       </Grid>";
+            UIElement root = SetupVisualTree(xaml);
+            VerifyVisualTree(root, Theme.Light);
+        }
+
+        [TestMethod]
+        public void VerifyVisualTreeExampleWithCustomerFilter()
+        {
+            if (PlatformConfiguration.IsOSVersionLessThan(OSVersion.Redstone5))
+            {
+                return;
+            }
+
+            var xaml = @"<Grid Width='400' Height='400' xmlns='http://schemas.microsoft.com/winfx/2006/xaml/presentation' xmlns:x='http://schemas.microsoft.com/winfx/2006/xaml'> 
+                        <TextBlock Text='Abc' />
+                       </Grid>";
+
+            VisualTreeDumpFilter = new CustomFilter();
+            VerifyVisualTree(xaml);
+        }
+
+        [TestMethod]
+        public void VerifyVisualTreeExampleWithCustomerPropertyValueTranslator()
+        {
+            if (PlatformConfiguration.IsOSVersionLessThan(OSVersion.Redstone5))
+            {
+                return;
+            }
+
+            var xaml = @"<Grid Width='400' Height='400' xmlns='http://schemas.microsoft.com/winfx/2006/xaml/presentation' xmlns:x='http://schemas.microsoft.com/winfx/2006/xaml'> 
+                            <TextBlock Text='Abc' />
+                       </Grid>";
+
+            PropertyValueTranslator = new CustTranslate();
+            VerifyVisualTree(xaml);
+        }
+
+        class CustomFilter : VisualTreeDumper.DefaultFilter // Ignore all properties starts with Actual
+        {
+            public override bool ShouldLogProperty(string propertyName)
+            {
+                if (propertyName.StartsWith("Actual"))
+                {
+                    return false;
+                }
+                return base.ShouldLogProperty(propertyName);
+            }
+        }
+
+        class CustTranslate : VisualTreeDumper.DefaultPropertyValueTranslator // Add prefix MyValue to all Value
+        {
+            public override string PropertyValueToString(string propertyName, object value)
+            {
+                return "MyValue" + base.PropertyValueToString(propertyName, value);
+            }
         }
     }
 }
