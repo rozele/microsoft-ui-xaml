@@ -8,6 +8,8 @@ using MUXControlsTestApp.Utilities;
 using System.Text;
 using System.Collections.Generic;
 using Windows.UI.Xaml.Markup;
+using DiffPlex.DiffBuilder;
+using DiffPlex.DiffBuilder.Model;
 
 #if USING_TAEF
 using WEX.TestExecution;
@@ -26,7 +28,6 @@ namespace Windows.UI.Xaml.Tests.MUXControls.ApiTests
     {
         Dark,
         Light,
-        HC,
         All
     }
 
@@ -189,7 +190,7 @@ namespace Windows.UI.Xaml.Tests.MUXControls.ApiTests
             Log.Comment("Target master file: " + expectedMasterFileName);
             Log.Comment("Best matched master file: " + bestMatchedMasterFileName);
 
-            XMLCompare result = new XMLCompare("", "");
+            VisualTreeOutputCompare result = new VisualTreeOutputCompare("", "");
             if (String.IsNullOrEmpty(bestMatchedMasterFileName))
             {
                 result.AddError("Can't find master file for " + TestCaseName);
@@ -197,7 +198,7 @@ namespace Windows.UI.Xaml.Tests.MUXControls.ApiTests
             else
             {
                 expectedContent = MasterFileStorage.GetMasterFileContent(bestMatchedMasterFileName);
-                result = new XMLCompare(content, expectedContent);
+                result = new VisualTreeOutputCompare(content, expectedContent);
             }
 
             if (result.HasError())
@@ -318,14 +319,26 @@ namespace Windows.UI.Xaml.Tests.MUXControls.ApiTests
         }
     }
 
-    class XMLCompare
+    class VisualTreeOutputCompare
     {
-        public XMLCompare(string xml1, string xml2)
+        public VisualTreeOutputCompare(string xml1, string xml2)
         {
-            // A directly string comparision and should be replaced in future
-            if (!xml1.Trim().Equals(xml2.Trim()))
+            var diffBuilder = new InlineDiffBuilder(new DiffPlex.Differ());
+            var diff = diffBuilder.BuildDiffModel(xml1, xml2);
+
+            foreach (var line in diff.Lines)
             {
-                AddError("content doesn't match");
+                switch (line.Type)
+                {
+                    case ChangeType.Inserted:
+                        AddError("+ " + line.Text);
+                        break;
+                    case ChangeType.Deleted:
+                        AddError("- " + line.Text);
+                        break;
+                    default:
+                        break;
+                }
             }
         }
         private StringBuilder _sb = new StringBuilder();
