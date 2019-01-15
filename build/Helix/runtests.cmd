@@ -2,9 +2,17 @@ robocopy %HELIX_CORRELATION_PAYLOAD% . /s /NP
 
 dir /b /s
 
-cd scripts
-powershell -ExecutionPolicy Bypass .\runappxdiag.ps1
-cd ..
+reg add HKLM\Software\ElevateIfNeeded /f 
+if not errorlevel 1 (
+    reg delete HKLM\Software\ElevateIfNeeded /f >nul
+    echo elevated
+) else (
+    echo not elevated
+)
+
+REM cd scripts
+REM powershell -ExecutionPolicy Bypass .\runappxdiag.ps1
+REM cd ..
 
 FOR %%I in (scripts\*.zip) DO (
     echo Uploading %%I to "%HELIX_RESULTS_CONTAINER_URI%/%%I%HELIX_RESULTS_CONTAINER_RSAS%"
