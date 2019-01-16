@@ -23,7 +23,13 @@ echo Uploading tdrdump.txt to "%HELIX_RESULTS_CONTAINER_URI%/tdrdump.txt%HELIX_R
 cd ..
 
 cd scripts
-powershell -ExecutionPolicy Bypass .\runappxdiag.ps1
+powershell -ExecutionPolicy Bypass .\runappxdiag.ps1 start
+cd ..
+
+te MUXControls.Test.dll MUXControlsTestApp.appx IXMPTestApp.appx /enablewttlogging /unicodeOutput:false /sessionTimeout:0:15 /testtimeout:0:10 %* 
+
+cd scripts
+powershell -ExecutionPolicy Bypass .\runappxdiag.ps1 stop
 cd ..
 
 FOR %%I in (scripts\*.zip) DO (
