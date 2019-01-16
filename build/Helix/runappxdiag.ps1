@@ -7,12 +7,17 @@ Write-Host sleeping
 Start-Sleep 10
 Write-Host sending keys
 $wshell.SendKeys('N')
-
-
 Write-Host waiting for appxdiag to exit
-Wait-Process AppxDiag -Timeout 120
+Wait-Process AppxDiag -Timeout 240
 
+$proc = Get-Process AppxDiag
+if($proc)
+{
+    Write-Host "AppxDiag did not exit!"
+}
+else
+{
+    Write-Host "AppxDiag exited"
+}
 
-# Write-Host sleeping again
-# Start-Sleep 60
-# Write-Host done
+Write-Host done

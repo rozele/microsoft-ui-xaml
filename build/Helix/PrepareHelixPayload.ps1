@@ -29,8 +29,9 @@ Copy-Item "$nugetPackagesDir\runtime.win-$Platform.microsoft.netcore.app.2.1.0\r
 New-Item -ItemType Directory -Force -Path "$payloadDir\.NETCoreApp2.1\"
 Copy-Item "$nugetPackagesDir\runtime.win-$Platform.microsoft.netcore.app.2.1.0\runtimes\win-$Platform\lib\netcoreapp2.1\*" "$payloadDir\.NETCoreApp2.1\"
 Copy-Item "$nugetPackagesDir\runtime.win-$Platform.microsoft.netcore.app.2.1.0\runtimes\win-$Platform\native\*" "$payloadDir\.NETCoreApp2.1\"
-Copy-Item "$nugetPackagesDir\MUXCustomBuildTasks.1.0.39-test1\tools\$platform\WttLog.dll" $payloadDir
-Copy-Item "$nugetPackagesDir\MUXCustomBuildTasks.1.0.39-test1\tools\x64\AppxDiag.exe" "$payloadDir\scripts"
+Copy-Item "$nugetPackagesDir\MUXCustomBuildTasks.1.0.39-test3\tools\$platform\WttLog.dll" $payloadDir
+Copy-Item "$nugetPackagesDir\MUXCustomBuildTasks.1.0.39-test3\tools\x64\AppxDiag.exe" "$payloadDir\scripts"
+Copy-Item "$nugetPackagesDir\MUXCustomBuildTasks.1.0.39-test3\tools\x64\TDRDump.exe" "$payloadDir\scripts"
 
 
 # Copy files from the 'drop' artifact dir

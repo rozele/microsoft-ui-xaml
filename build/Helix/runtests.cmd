@@ -11,6 +11,12 @@ if not errorlevel 1 (
 )
 
 cd scripts
+TDRDump.exe > tdrdump.txt
+echo Uploading tdrdump.txt to "%HELIX_RESULTS_CONTAINER_URI%/tdrdump.txt%HELIX_RESULTS_CONTAINER_RSAS%"
+%HELIX_PYTHONPATH% %HELIX_SCRIPT_ROOT%\upload_result.py -result tdrdump.txt -result_name tdrdump.txt
+cd ..
+
+cd scripts
 powershell -ExecutionPolicy Bypass .\runappxdiag.ps1
 cd ..
 
@@ -20,7 +26,7 @@ te MUXControls.Test.dll /unicodeOutput:false /screenCaptureOnError /name:ffddfdf
 powershell -ExecutionPolicy Bypass -Command "Wait-Process AppxDiag -Timeout 120"
 
 FOR %%I in (scripts\*.zip) DO (
-    echo Uploading %%I to "%HELIX_RESULTS_CONTAINER_URI%/%%I%HELIX_RESULTS_CONTAINER_RSAS%"
+    echo Uploading %%I to "%HELIX_RESULTS_CONTAINER_URI%/%%~nI%%~xI%HELIX_RESULTS_CONTAINER_RSAS%"
     %HELIX_PYTHONPATH% %HELIX_SCRIPT_ROOT%\upload_result.py -result %%I -result_name %%~nI%%~xI 
 )
 
@@ -29,7 +35,7 @@ REM te MUXControls.Test.dll MUXControlsTestApp.appx IXMPTestApp.appx /enablewttl
 REM %HELIX_PYTHONPATH% %HELIX_SCRIPT_ROOT%\upload_result.py -result te.wtl -result_name te.wtl
 
 FOR %%I in (WexLogFileOutput\*.jpg) DO (
-    echo Uploading %%I to "%HELIX_RESULTS_CONTAINER_URI%/%%I%HELIX_RESULTS_CONTAINER_RSAS%"
+    echo Uploading %%I to "%HELIX_RESULTS_CONTAINER_URI%/%%~nI%%~xI%HELIX_RESULTS_CONTAINER_RSAS%"
     %HELIX_PYTHONPATH% %HELIX_SCRIPT_ROOT%\upload_result.py -result %%I -result_name %%~nI%%~xI 
 )
 
