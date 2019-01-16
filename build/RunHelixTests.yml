@@ -90,7 +90,7 @@ jobs:
       Debug_x86:
         buildPlatform: 'x86'
         buildConfiguration: 'Debug'
-        helixTargetQueues: 'Windows.10.Amd64.ClientRS4.Open'
+        helixTargetQueues: 'Windows.10.Amd64.ClientRS2.Open%3bWindows.10.Amd64.ServerRS3.Open%3bWindows.10.Amd64.ClientRS4.Open'
       # Release_x86:
       #   buildPlatform: 'x86'
       #   buildConfiguration: 'Release'
