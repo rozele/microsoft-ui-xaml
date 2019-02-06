@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Element Type="Windows.UI.Xaml.Controls.Grid">
+  <Property Name="Padding" Value="0,0,0,0" />
+  <Property Name="BorderThickness" Value="0,0,0,0" />
+  <Property Name="BorderBrush" Value="[NULL]" />
+  <Property Name="Background" Value="[NULL]" />
+  <Property Name="Name" Value="" />
+  <Property Name="Margin" Value="0,0,0,0" />
+  <Property Name="FocusVisualSecondaryThickness" Value="1,1,1,1" />
+  <Property Name="FocusVisualSecondaryBrush" Value="#99FFFFFF" />
+  <Property Name="FocusVisualPrimaryThickness" Value="2,2,2,2" />
+  <Property Name="FocusVisualPrimaryBrush" Value="#FF000000" />
+  <Property Name="Visibility" Value="Visible" />
+  <Property Name="RenderSize" Value="400,400" />
+</Element>

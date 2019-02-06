@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Element Type="Windows.UI.Xaml.Controls.Grid">
+  <Property Name="Padding" Value="MyValue0,0,0,0" />
+  <Property Name="BorderThickness" Value="MyValue0,0,0,0" />
+  <Property Name="BorderBrush" Value="MyValue[NULL]" />
+  <Property Name="Background" Value="MyValue[NULL]" />
+  <Property Name="Name" Value="MyValue" />
+  <Property Name="Margin" Value="MyValue0,0,0,0" />
+  <Property Name="FocusVisualSecondaryThickness" Value="MyValue1,1,1,1" />
+  <Property Name="FocusVisualSecondaryBrush" Value="MyValue#99000000" />
+  <Property Name="FocusVisualPrimaryThickness" Value="MyValue2,2,2,2" />
+  <Property Name="FocusVisualPrimaryBrush" Value="MyValue#FFFFFFFF" />
+  <Property Name="Visibility" Value="MyValueVisible" />
+  <Property Name="RenderSize" Value="MyValue400,400" />
+ <Element Type="Windows.UI.Xaml.Controls.TextBlock">
+   <Property Name="Padding" Value="MyValue0,0,0,0" />
+   <Property Name="Foreground" Value="MyValue#FFFFFFFF" />
+   <Property Name="Name" Value="MyValue" />
+   <Property Name="Margin" Value="MyValue0,0,0,0" />
+   <Property Name="FocusVisualSecondaryThickness" Value="MyValue1,1,1,1" />
+   <Property Name="FocusVisualSecondaryBrush" Value="MyValue#99000000" />
+   <Property Name="FocusVisualPrimaryThickness" Value="MyValue2,2,2,2" />
+   <Property Name="FocusVisualPrimaryBrush" Value="MyValue#FFFFFFFF" />
+   <Property Name="Visibility" Value="MyValueVisible" />
+   <Property Name="RenderSize" Value="MyValue400,400" />
+ </Element>
+</Element>
