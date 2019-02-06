@@ -51,7 +51,9 @@ namespace Windows.UI.Xaml.Tests.MUXControls.InteractionTests
             TestCleanupHelper.Cleanup();
         }
 
-        [TestMethod]
+        //[TestMethod]
+        // Disabled due to: 
+        // https://github.com/Microsoft/microsoft-ui-xaml/issues/115
         public void BasicMouseInteractionTest()
         {
             if (PlatformConfiguration.IsDevice(DeviceType.Phone))
@@ -163,7 +165,8 @@ namespace Windows.UI.Xaml.Tests.MUXControls.InteractionTests
             }
         }
         
-        [TestMethod]
+        //[TestMethod]
+        // Disabled due to: MenuBarTests.KeyboardNavigationWithAccessKeysTest unreliable #135
         public void KeyboardNavigationWithAccessKeysTest()
         {
             if (PlatformConfiguration.IsDevice(DeviceType.Phone))

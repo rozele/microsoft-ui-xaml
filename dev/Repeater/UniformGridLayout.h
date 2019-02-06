@@ -15,6 +15,8 @@ class UniformGridLayout :
     public OrientationBasedMeasures
 {
 public:
+    UniformGridLayout();
+
 #pragma region IGridLayout
     winrt::Orientation Orientation();
     void Orientation(winrt::Orientation const& value);
@@ -33,6 +35,9 @@ public:
 
     winrt::UniformGridLayoutItemsJustification ItemsJustification();
     void ItemsJustification(winrt::UniformGridLayoutItemsJustification const& value);
+
+    winrt::UniformGridLayoutItemsStretch ItemsStretch();
+    void ItemsStretch(winrt::UniformGridLayoutItemsStretch const& value);
 #pragma endregion
 
 #pragma region IVirtualizingLayoutOverrides
@@ -93,6 +98,7 @@ public:
     static winrt::DependencyProperty MinRowSpacingProperty() { return s_minRowSpacingProperty; }
     static winrt::DependencyProperty MinColumnSpacingProperty() { return s_minColumnSpacingProperty; }
     static winrt::DependencyProperty ItemsJustificationProperty() { return s_itemsJustificationProperty; }
+    static winrt::DependencyProperty ItemsStretchProperty() { return s_itemsStretchProperty; }
 
     static GlobalDependencyProperty s_orientationProperty;
     static GlobalDependencyProperty s_minItemWidthProperty;
@@ -100,6 +106,7 @@ public:
     static GlobalDependencyProperty s_minRowSpacingProperty;
     static GlobalDependencyProperty s_minColumnSpacingProperty;
     static GlobalDependencyProperty s_itemsJustificationProperty;
+    static GlobalDependencyProperty s_itemsStretchProperty;
 
     static void EnsureProperties();
     static void ClearProperties();
@@ -146,6 +153,7 @@ private:
     double m_minRowSpacing{};
     double m_minColumnSpacing{};
     winrt::UniformGridLayoutItemsJustification m_itemsJustification{ winrt::UniformGridLayoutItemsJustification::Start };
+    winrt::UniformGridLayoutItemsStretch m_itemsStretch{ winrt::UniformGridLayoutItemsStretch::None };
     // !!! WARNING !!!
     // Any storage here needs to be related to layout configuration. 
     // layout specific state needs to be stored in UniformGridLayoutState.

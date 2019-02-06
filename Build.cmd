@@ -78,6 +78,12 @@ if "%1" == "/UseInsiderSDK" (
     shift
     goto :MoreArguments
 )
+if "%1" == "/UseInternalSDK" (
+    REM echo UseInternalSDK
+    set USEINTERNALSDK=1
+    shift
+    goto :MoreArguments
+)
 if "%1" == "/project" (
     set PROJECTPATH=%~2
     shift
@@ -110,23 +116,24 @@ set EXTRAMSBUILDPARAMS=
 if "%BUILDLEANMUXFORTHESTOREAPP%" == "1" ( set EXTRAMSBUILDPARAMS=/p:BuildLeanMuxForTheStoreApp=true )
 if "%MUXFINAL%" == "1" ( set EXTRAMSBUILDPARAMS=/p:MUXFinalRelease=true )
 if "%USEINSIDERSDK%" == "1" ( set EXTRAMSBUILDPARAMS=/p:UseInsiderSDK=true )
+if "%USEINTERNALSDK%" == "1" ( set EXTRAMSBUILDPARAMS=/p:UseInternalSDK=true )
 
 REM Need an explicit full path to MSBuild.exe or it will fall back to 14.0 for some reason
 set MSBUILDPATH=%VSINSTALLDIR%\MSBuild\15.0\Bin\MSBuild.exe
 
 if "%PROJECTPATH%" NEQ "" (
-    set MSBuildCommand="%MSBUILDPATH%" %PROJECTPATH% /p:platform="%BUILDPLATFORM%" /p:configuration="%BUILDCONFIGURATION%" /p:VisualStudioVersion="15.0" /flp:Verbosity=Diagnostic /fl %EXTRAMSBUILDPARAMS% /verbosity:Minimal
+    set MSBuildCommand="%MSBUILDPATH%" %PROJECTPATH% /p:platform="%BUILDPLATFORM%" /p:configuration="%BUILDCONFIGURATION%" /p:VisualStudioVersion="15.0" /flp:Verbosity=Diagnostic /fl /bl %EXTRAMSBUILDPARAMS% /verbosity:Minimal
     echo !MSBuildCommand!
     !MSBuildCommand!
 ) else (
     if "%BUILDALL%" == "" (
         set XES_OUTDIR=%BUILD_BINARIESDIRECTORY%\%BUILDCONFIGURATION%\%BUILDPLATFORM%\
 
-        "%MSBUILDPATH%" .\MUXControls.sln /p:platform="%BUILDPLATFORM%" /p:configuration="%BUILDCONFIGURATION%" /p:VisualStudioVersion="15.0" /flp:Verbosity=Diagnostic /fl %EXTRAMSBUILDPARAMS% /verbosity:Minimal
+        "%MSBUILDPATH%" .\MUXControls.sln /p:platform="%BUILDPLATFORM%" /p:configuration="%BUILDCONFIGURATION%" /p:VisualStudioVersion="15.0" /flp:Verbosity=Diagnostic /fl /bl %EXTRAMSBUILDPARAMS% /verbosity:Minimal
 
         if "%ERRORLEVEL%" == "0" call .\tools\MakeAppxHelper.cmd %BUILDPLATFORM% %BUILDCONFIGURATION%
     ) else (
-        "%MSBUILDPATH%" .\build\BuildAll.proj /maxcpucount:12 /p:VisualStudioVersion="15.0" /flp:Verbosity=Diagnostic /fl /verbosity:Minimal
+        "%MSBUILDPATH%" .\build\BuildAll.proj /maxcpucount:12 /p:VisualStudioVersion="15.0" /flp:Verbosity=Diagnostic /fl /bl /verbosity:Minimal
 
         if "%ERRORLEVEL%" == "0" (
             call .\tools\MakeAppxHelper.cmd x86 release
@@ -165,6 +172,7 @@ echo    Options:
 echo        /leanmux - build lean mux for the store
 echo        /muxfinal - build "final" bits which have the winmd stripped of experimental types
 echo        /UseInsiderSDK - build using insider SDK
+echo        /UseInternalSDK - build using internal SDK
 echo        /project ^<path^> - builds a specific project
 echo.
 

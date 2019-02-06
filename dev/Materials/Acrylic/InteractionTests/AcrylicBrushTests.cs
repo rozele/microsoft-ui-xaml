@@ -150,8 +150,7 @@ namespace Windows.UI.Xaml.Tests.MUXControls.InteractionTests
             }
         }
 
-#if !BUILD_WINDOWS
-        // Regression Test for Bug 11144540:Acrylic noise surface is lost after workstation sleep/resume
+
         [TestMethod]
         [TestProperty("Platform", "Desktop")]
         public void HideAndShowWindow()
@@ -249,7 +248,6 @@ namespace Windows.UI.Xaml.Tests.MUXControls.InteractionTests
                 HideAndShowWindow_GotWindowVisibleEvent.Set();
             }
         }
-#endif
 
         [TestMethod]
         public void AcrylicAlwaysUseFallback()
