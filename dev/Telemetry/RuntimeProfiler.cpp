@@ -73,6 +73,73 @@ namespace RuntimeProfiler {
             }
         }
         
+        //  This function returns the start of the string presentation of
+        //  given number, it assumes the buffer passed has a sufficiently
+        //  large buffer to accomodate the number.
+        static PWSTR ConstructNumber(_In_ UINT uNumber, _Out_ PWSTR pszEnd)
+        {
+            *pszEnd = 0;  // null terminate!
+
+            //  Special case 0
+            if (0 == uNumber)
+            {
+                pszEnd--;
+                *pszEnd = '0';
+            }
+            else
+            {
+                for (; uNumber; uNumber /= 10)
+                {
+                    pszEnd--;
+                    *pszEnd = '0' + (uNumber % 10);
+                }
+            }
+
+            return (pszEnd);
+        }
+
+        //  This function copies the source string to the destination string
+        //  and return the pointer to the null terminator, it never writes past
+        //  the given last character.
+        static PWSTR WriteString(_Out_ PWSTR pszDst, _In_ PCWSTR pszSrc, _In_ PWSTR pszLastChar)
+        {
+            for (; *pszSrc; pszSrc++, pszDst++)
+            {
+                *pszDst = *pszSrc;
+                if (pszDst == pszLastChar)
+                {
+                    break;
+                }
+            }
+            *pszDst = 0;
+
+            return (pszDst);
+        }
+
+        //  Thin wrapper around the firing of the event, since we may now fire
+        //  multiple events if our output buffer fills.
+        static void FireEventRaw(PCWSTR pszAPICounts, UINT32 uGroupId, UINT32 cMethods, bool bSuspend, bool bOverflow, bool bStringOverflow)
+        {
+            TraceLoggingWrite(
+                g_hTelemetryProvider,
+                "RuntimeProfiler",
+                TraceLoggingDescription("XAML methods that have been called."),
+                TraceLoggingWideString(pszAPICounts, "ApiCounts"),
+                TraceLoggingUInt32(uGroupId, "ProfileGroupId"),
+                TraceLoggingUInt32(cMethods,"TotalCount"),
+                TraceLoggingBoolean(bSuspend, "OnSuspend"),
+                TraceLoggingBoolean(bOverflow, "Overflow"),
+                TraceLoggingBoolean(bStringOverflow, "StringOverflow"),
+                TraceLoggingBoolean(TRUE, "UTCReplace_AppSessionGuid"),
+                TraceLoggingKeyword(MICROSOFT_KEYWORD_MEASURES));
+        }
+
+        //  Note:  This method is now called during process detach, thus we
+        //         may not call any API outside of kernel or risk acquiring the
+        //         loader lock, so all string formatting is done manually.
+        //         The only API's that we call are:
+        //            InterlockedExchange()
+        //            TraceLoggingWrite()
         void FireEvent(bool bSuspend) noexcept
         {
             if (!g_IsTelemetryProviderEnabled)
@@ -81,28 +148,24 @@ namespace RuntimeProfiler {
                 return;
             }
 
-            UINT32      ArraySize = (UINT32)(m_Counts.max_size());
-            bool        bOverflow = ((UINT32)(m_cMethods) >= ArraySize);
-            UINT32      cMethods = (UINT32)m_cMethods;
-            bool        bStringOverflow = false;
-            UINT16      cMethodsLogged = 0;
-            bool        bSeparator = false;
-            
             //  Each entry will look like this:
             //  [XX|YYYY]:ZZZ
             //  Conservatively accounting for 20 characters per entry depending
             //  on the length of the numbers.
             WCHAR       OutputBuffer[20 * TableSize];
-            size_t      cchDest = ARRAYSIZE(OutputBuffer);
-   
-            // min
-            cMethods = std::min(cMethods, ArraySize);
-   
-            PWSTR       pszDest = &(OutputBuffer[0]);
-            
-            for (UINT32 ii = 0; ii < cMethods; ii++)
+            WCHAR       Number[15];     //  MAX_INT is 4294967295
+            UINT32      cMethods = (UINT32)m_cMethods;
+            bool        bStringOverflow = false;
+
+            //  Used to construct output string.
+            PWSTR       pszOutput = &(OutputBuffer[0]);
+            PWSTR       pszLastEntry = pszOutput;
+            PWSTR       pszLastChar = &(OutputBuffer[_countof(OutputBuffer) - 1]);
+            PWSTR       pszNumEnd = &(Number[_countof(Number) - 1]);
+
+            for (UINT ii = 0; ii < cMethods; ii++)
             {
-                LONG        cHits;
+                UINT    cHits;
 
                 if (!m_Counts[ii].pInstanceCount)
                 {
@@ -111,62 +174,58 @@ namespace RuntimeProfiler {
                     //  up on the next FireEvent().
                     continue;
                 }
-            
-                //  Zeroing out AND getting value.
-                cHits = InterlockedExchange(m_Counts[ii].pInstanceCount, 0);
-            
-                if (0 != cHits)
-                {
-                    HRESULT     hr;
-                    
-                    //  We're using id's instead.  The entry in the list will
-                    //  look like '[type index|method index]:count'
-                    hr = StringCchPrintfExW(
-                            pszDest,
-                            cchDest,
-                            &pszDest,
-                            &cchDest,
-                            STRSAFE_NULL_ON_FAILURE,
-                            L"%ls[%d|%d]:%d",
-                            (bSeparator?L",":L""),
-                            (int)m_Counts[ii].uTypeIndex,
-                            (int)m_Counts[ii].uMethodIndex,
-                            cHits);
 
-                    if (S_OK == hr)
+                //  Zeroing out AND getting current value.
+                cHits = (UINT)(::InterlockedExchange(m_Counts[ii].pInstanceCount, 0));
+
+                if (0 == cHits)
+                {
+                    //  Next!
+                    continue;
+                }
+
+                for (;;)
+                {
+                    PWSTR   pszWrite = pszLastEntry;
+
+                    //  If not first entry, enter a separator...
+                    if (pszWrite != pszOutput)
                     {
-                        cMethodsLogged++;
-                        bSeparator = true;
+                        pszWrite = WriteString(pszWrite, L",", pszLastChar);
                     }
-                    else if ((STRSAFE_E_INSUFFICIENT_BUFFER == hr) ||
-                             (STRSAFE_E_INVALID_PARAMETER == hr))
+
+                    //  The entry in the list will look like
+                    //    '[type index|method index]:count'
+                    pszWrite = WriteString(pszWrite, L"[", pszLastChar);
+                    pszWrite = WriteString(pszWrite, ConstructNumber((m_Counts[ii].uTypeIndex), pszNumEnd), pszLastChar);
+                    pszWrite = WriteString(pszWrite, L"|", pszLastChar);
+                    pszWrite = WriteString(pszWrite, ConstructNumber((m_Counts[ii].uMethodIndex), pszNumEnd), pszLastChar);
+                    pszWrite = WriteString(pszWrite, L"]:", pszLastChar);
+                    pszWrite = WriteString(pszWrite, ConstructNumber(cHits, pszNumEnd), pszLastChar);
+
+                    if (pszWrite == pszLastChar)
                     {
-                        //  The only legit ways to get invalid parameter
-                        //    here is ccDest == 0, so it's effectively an
-                        //    overflow condition.  
-                        bStringOverflow = true;
+                        //  Our buffer is full...
+                        *pszLastEntry = 0;  // truncating to last full entry we could accomodate
+                        pszLastEntry = pszOutput;  // resetting the write buffer to process additional events
+                        FireEventRaw(pszOutput, m_group, cMethods, bSuspend, false, true);  //  Firing the event
+
+                        //  And loop through to process this entry again.
+                    }
+                    else
+                    {
+                        //  Wrote string.  Next!
+                        pszLastEntry = pszWrite;
                         break;
                     }
                 }
             }
-        
-            if (0 == cMethodsLogged)
+
+            if (pszLastEntry != pszOutput)
             {
-                return;
+                //  We have something to log in the event.
+                FireEventRaw(pszOutput, m_group, cMethods, bSuspend, false, false);
             }
-            
-            TraceLoggingWrite(  
-                g_hTelemetryProvider,  
-                "RuntimeProfiler",
-                TraceLoggingDescription("XAML methods that have been called."),  
-                TraceLoggingWideString(OutputBuffer, "ApiCounts"),
-                TraceLoggingUInt32(((UINT32)m_group), "ProfileGroupId"),
-                TraceLoggingUInt32(((UINT32)cMethods),"TotalCount"),
-                TraceLoggingBoolean(bSuspend, "OnSuspend"),
-                TraceLoggingBoolean(bOverflow, "Overflow"),
-                TraceLoggingBoolean(bStringOverflow, "StringOverflow"),
-                TraceLoggingBoolean(TRUE, "UTCReplace_AppSessionGuid"),
-                TraceLoggingKeyword(MICROSOFT_KEYWORD_MEASURES));
         }
         
     private:
